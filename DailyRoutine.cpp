@@ -41,14 +41,12 @@ void delete_slow(std::ostream& out, int num_chars_to_delete, int millis) {
     }
 }
 
-void stampaRigaPerRiga(const std::vector<std::string>& righe, int msPerRiga, int msPerChar) {
-    for (const std::string& riga : righe) {
-        for (char c : riga) {
-            std::cout << c << std::flush;
-            std::this_thread::sleep_for(std::chrono::milliseconds(msPerChar));
-        }
-        std::cout << std::endl;
-        std::this_thread::sleep_for(std::chrono::milliseconds(msPerRiga));
+void stampaRigaPerRiga(const std::string& asciiArt) {
+    std::istringstream stream(asciiArt);
+    std::string riga;
+
+    while (std::getline(stream, riga)) {
+        std::cout << riga << std::endl;
     }
 }
 
@@ -147,7 +145,16 @@ int main() {
    HANDLE hc = GetStdHandle(STD_OUTPUT_HANDLE);
 
     cambiaColoreSfondo(0,15);
-
+    std::string arte =R"(
+    ______      _ _         ______            _   _            
+    |  _  \    (_) |        | ___ \          | | (_)           
+    | | | |__ _ _| |_   _   | |_/ /___  _   _| |_ _ _ __   ___ 
+    | | | / _  | | | | | |  |    // _ \| | | | __| |  _ \ / _ \
+    | |/ / (_| | | | |_| |  | |\ \ (_) | |_| | |_| | | | |  __/
+    |___/ \__ _|_|_|\__  |  \_| \_\___/ \__ _|\__|_|_| |_|\___|
+                    __/ /                                     
+                   |___/                                      
+    )";
     int a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao,ap,aq,ar,as,at,au,av,aw,ax,ay,az,ba,bb,bc,bd,be,bf,bg,bh,
     na,nb,zzz,xxx,nc,nd,ne,nf,ng,nh,ni,nj,nk,nm,nn,no,np,nq,ns,nt,nu,nv,nw,nx,ny,nz,eh,qq,jj,gg;
     string nome;
@@ -198,6 +205,7 @@ int main() {
     PlaySound(TEXT("./music/piedi.wav"), NULL, SND_FILENAME | SND_ASYNC);
     system("cls");
     cambiaColoreSfondo(7,0);
+    stampaRigaPerRiga(arte);
     print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\nEverything around you is in it's right place\nThe memories of a dream that was better than reality fade away in your mind\nBut it's time to live now\nWhat do you do?\n\n1)Hop off bed.           2)Stay in.\n\n",50);
     cin>>ac;//1
     if(ac==1){
@@ -1458,7 +1466,7 @@ int main() {
                         displayProgressBar(i, total);
                         std::this_thread::sleep_for(std::chrono::milliseconds(50));}
                         cambiaColoreSfondo(7,0);
-                        stampaRigaPerRiga(testo, velocita);
+                        stampaRigaPerRiga(arte);
                         Sleep(1000);
                         print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\nEverything around you is in it's right place\nThe memories of a dream that was...",50);
                         Sleep(750);
