@@ -5,7 +5,6 @@
 #include <clocale>
 #include<string>
 #include <chrono>
-#include<fstream>
 #include <thread>
 #include <filesystem>
 #include<mmsystem.h>
@@ -24,6 +23,8 @@
 #include<unistd.h>
 #include<cstdio>
 #include<atomic>
+#include <algorithm>
+#include<cctype>
 #pragma comment(lib, "winmm.lib")
 using namespace std;
 using namespace std::chrono;
@@ -118,6 +119,91 @@ void print_slow(std::ostream& out, const std::string& s, int millis) {
 	}
 }
 
+void sCrEeeEeEeEEee() {
+    const int W = 100;
+    const int H = 40;
+    const string G = "@#%&$XO!*0";
+    srand(time(0));
+
+    for (int f = 0; f < 35; ++f) {
+        system("cls");
+
+        double aM = (f + 4) * 1.4; // apertura orizzontale bocca più dolce
+        double bM = (f + 2) * 0.6; // apertura verticale bocca più fluida
+
+        for (int y = 0; y < H; ++y) {
+            for (int x = 0; x < W; ++x) {
+                // --- Occhi identici ---
+                int cxL = W / 4;
+                int cxR = 3 * W / 4;
+                int cy = H / 3;
+
+                double dxL = x - cxL;
+                double dxR = x - cxR;
+                double dy = y - cy;
+
+                double aEye = 8.0;
+                double bEye = 6.0;
+
+                bool inLeftEye = (dxL * dxL) / (aEye * aEye) + (dy * dy) / (bEye * bEye) < 1.0;
+                bool inRightEye = (dxR * dxR) / (aEye * aEye) + (dy * dy) / (bEye * bEye) < 1.0;
+
+                if (inLeftEye || inRightEye) {
+                    cout << G[rand() % G.size()];
+                }
+                else {
+                    // --- Bocca ellittica più stabile ---
+                    double dxM = x - W / 2;
+                    double dyM = y - H / 2;
+
+                    if ((dxM * dxM) / (aM * aM) + (dyM * dyM) / (bM * bM) < 1.0) {
+                        char ch;
+                        if (rand() % 10 > 2)
+                            ch = '#';
+                        else if (rand() % 2)
+                            ch = 'V';
+                        else
+                            ch = G[rand() % G.size()];
+                        cout << ch;
+                    }
+                    else {
+                        cout << ' ';
+                    }
+                }
+            }
+            cout << "\n";
+        }
+
+        this_thread::sleep_for(chrono::milliseconds(80));
+    }
+
+    // BOOM finale: schermo divorato
+    system("cls");
+    for (int y = 0; y < H; ++y) {
+        for (int x = 0; x < W; ++x) {
+            cout << "#";
+        }
+        cout << "\n";
+    }
+}
+
+string leggiCodess() {
+    std::ifstream file("codess.txt");
+    std::string codice;
+
+    if (file.is_open()) {
+        std::getline(file, codice);
+        file.close();
+
+        // Rimuove eventuali spazi, ritorni a capo, ecc.
+        codice.erase(std::remove_if(codice.begin(), codice.end(),
+                    [](char c) { return std::isspace(static_cast<unsigned char>(c)); }),
+                codice.end());
+    }
+
+    return codice;
+}
+
 int main() {
 
     SetConsoleTitle("DailyRoutine.exe");
@@ -158,6 +244,7 @@ int main() {
     int a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao,ap,aq,ar,as,at,au,av,aw,ax,ay,az,ba,bb,bc,bd,be,bf,bg,bh,
     na,nb,zzz,xxx,nc,nd,ne,nf,ng,nh,ni,nj,nk,nm,nn,no,np,nq,ns,nt,nu,nv,nw,nx,ny,nz,eh,qq,jj,gg;
     string nome;
+    std::string codess;
     HWND hwnd = GetConsoleWindow(); 
     KeepWindowOnTop(hwnd);
     Sleep(150);
@@ -2794,4 +2881,3 @@ int main() {
     }
     return 0;
 }
-
