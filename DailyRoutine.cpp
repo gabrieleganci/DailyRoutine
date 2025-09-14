@@ -42,11 +42,24 @@ void delete_slow(std::ostream& out, int num_chars_to_delete, int millis) {
     }
 }
 
-void stampaRigaPerRiga(const std::string& asciiArt) {
-    std::istringstream stream(asciiArt);
+void stampaRigaPerRiga(const std::string& asciiArt, int ritardoMillisecondi) {
     std::string riga;
-
-    while (std::getline(stream, riga)) {
+    
+    for (char c : asciiArt) {
+        if (c == '\n') {
+            // Stampa la riga completata
+            std::cout << riga << std::endl;
+            riga.clear();
+            
+            // Attende il tempo specificato
+            std::this_thread::sleep_for(std::chrono::milliseconds(ritardoMillisecondi));
+        } else {
+            riga += c;
+        }
+    }
+    
+    // Stampa l'ultima riga se presente
+    if (!riga.empty()) {
         std::cout << riga << std::endl;
     }
 }
@@ -231,15 +244,15 @@ int main() {
    HANDLE hc = GetStdHandle(STD_OUTPUT_HANDLE);
 
     cambiaColoreSfondo(0,15);
-    std::string arte =R"(
-    ______      _ _         ______            _   _            
-    |  _  \    (_) |        | ___ \          | | (_)           
-    | | | |__ _ _| |_   _   | |_/ /___  _   _| |_ _ _ __   ___ 
-    | | | / _  | | | | | |  |    // _ \| | | | __| |  _ \ / _ \
-    | |/ / (_| | | | |_| |  | |\ \ (_) | |_| | |_| | | | |  __/
-    |___/ \__ _|_|_|\__  |  \_| \_\___/ \__ _|\__|_|_| |_|\___|
-                    __/ /                                     
-                   |___/                                      
+    std::string asciiArt =R"(
+______      _ _         ______            _   _            
+|  _  \    (_) |        | ___ \          | | (_)           
+| | | |__ _ _| |_   _   | |_/ /___  _   _| |_ _ _ __   ___ 
+| | | / _  | | | | | |  |    // _ \| | | | __| |  _ \ / _ \
+| |/ / (_| | | | |_| |  | |\ \ (_) | |_| | |_| | | | |  __/
+|___/ \__ _|_|_|\__  |  \_| \_\___/ \__ _|\__|_|_| |_|\___|
+                __/ /                                     
+               |___/                                      
     )";
     int a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao,ap,aq,ar,as,at,au,av,aw,ax,ay,az,ba,bb,bc,bd,be,bf,bg,bh,
     na,nb,zzz,xxx,nc,nd,ne,nf,ng,nh,ni,nj,nk,nm,nn,no,np,nq,ns,nt,nu,nv,nw,nx,ny,nz,eh,qq,jj,gg;
@@ -292,7 +305,7 @@ int main() {
     PlaySound(TEXT("./music/piedi.wav"), NULL, SND_FILENAME | SND_ASYNC);
     system("cls");
     cambiaColoreSfondo(7,0);
-    stampaRigaPerRiga(arte);
+    stampaRigaPerRiga(asciiArt, 350);
     print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\nEverything around you is in it's right place\nThe memories of a dream that was better than reality fade away in your mind\nBut it's time to live now\nWhat do you do?\n\n1)Hop off bed.           2)Stay in.\n\n",50);
     cin>>ac;//1
     if(ac==1){
@@ -363,7 +376,7 @@ int main() {
                     print_slow(cout,"\n- SHUT UP-\n",30);
                     SetConsoleTextAttribute(hc, 0x70);
                     print_slow(cout,"\nShe shouts as you laugh, and this will be only one of the moments like this\nAs you eat your stupid meals you start debating\n",65);
-                    Sleep(500);
+                    Sleep(1500);
                     SetConsoleTextAttribute(hc, 0x78);
                     print_slow(cout,"\n-What if we didn't need to eat?\n",35);
                     Sleep (500);
@@ -1553,7 +1566,7 @@ int main() {
                         displayProgressBar(i, total);
                         std::this_thread::sleep_for(std::chrono::milliseconds(50));}
                         cambiaColoreSfondo(7,0);
-                        stampaRigaPerRiga(arte);
+                        stampaRigaPerRiga(asciiArt, 350);
                         Sleep(1000);
                         print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\nEverything around you is in it's right place\nThe memories of a dream that was...",50);
                         Sleep(750);
@@ -2097,7 +2110,7 @@ int main() {
                                 SetConsoleTextAttribute(hc, 0x70);
                                 print_slow(cout,"\nYou freeze in shock, this is not her normal voice\nIs she being used as a puppet?\n",60);
                                 Sleep(400);
-                                print_slow(cout,"\nWhat is this entity?\n",60);
+                                print_slow(cout,"\nWhat is that entity?\n",60);
                                 Sleep(400);
                                 print_slow(cout,"You take a few steps away from ",60);
                                 SetConsoleTextAttribute(hc, 0x7D);
@@ -2211,6 +2224,7 @@ int main() {
                                 Sleep(50);
                                 sCrEeeEeEeEEee();
                                 //SuonoJumpscare?
+                                Sleep(50);
                                 system("cls");
                                 cambiaColoreSfondo(0,15);
                                 PlaySound(NULL, NULL, 0);
@@ -2579,14 +2593,6 @@ int main() {
                 if(ar==1){//Scelta numero: 1.2.2.1.1
                     print_slow(cout,"\nYou think going to the beach is a good idea\nIt's not too far out of town,\nAnd it's literally straight from now until like 4 exits\n",60);
                     Sleep(1000);
-                    print_slow(cout,"\nYou vibe with the music while driving and smoking\nThe cars that pass by feel like your ideas,\nTerribly quick but all equally real\n",60);
-                    Sleep(1500);
-                    print_slow(cout,"\n...You start feeling a little bored\nBut you took a day off, it shouldn't be happening\n",60);
-                    Sleep(2000);
-                    print_slow(cout,"\nLuck for you, you know just how to fix that",60);
-                    Sleep(1000);
-                    print_slow(cout,"\nYeah you just need some redesign",60);
-                    Sleep(1500);
                     //dafinire
                     //cambiare un po lo stile e i colori del terminale
                 }
@@ -2597,7 +2603,149 @@ int main() {
                     print_slow(cout,"\n-I want to get out of this fucking city\n",40);
                     SetConsoleTextAttribute(hc, 0x70);
                     print_slow(cout,"\nYou press on the pedal sliding trough the six lane high way\nAnd with your arm out of the window the trip progresses smoothly\n",60);
-                    //dafinire
+                    Sleep(200);
+                    print_slow(cout,"\nDays off really make your head fill with funny ideas,\nYou wanted to be a taxi driver for some time\nBut it would probably make you even more insane that living in this place\nYou don't wanna end up like that guy in the movie\nEven tho you respected the position taken\n",60);
+                    Sleep(1000);
+                    print_slow(cout,"\nMaybe one day you will do something that important too.\n",60);
+                    Sleep(2000);
+                    print_slow(cout,"\nMaybe now that you can finally go out of this place you will have more chances\nIt's a weird feeling but you feel like this city is keeping you stuck\nYou're not made for this, you have always been a free soul\nYou always liked to explore\nLiving closed in a box it's not your thing",60);
+                    Sleep(2500);
+                    print_slow(cout,"\n\n1)Steer            2)Don't Steer\n",60);
+                    cin>>ba;
+                    if(ba==1){//Scelta numero: 1.2.2.1.2.1
+                        print_slow(cout,"\nYou keep thinking at where you should go after arriving to the airport\nThe world is so big and unexplored\nFinally you can give a sense to all the hours spent working\n",60);
+                        Sleep(1200);
+                        print_slow(cout,"\nYou try to pass a car in front of you by steering\n",60);
+                        Sleep(350);
+                        print_slow(cout,"\nYou immediatly feel the tiers losing grip from the asphalt, fuk your past self for not inflating them properly\n",50);
+                        Sleep(10);
+                        print_slow(cout,"You try to counter-steer but the loose grip only makes you crash into the Prius you were trying to overtake\n",47);
+                        Sleep(10);
+                        print_slow(cout,"You slam the brakes and instinctively close your eyes.",60);
+                        Sleep(750);
+                        cambiaColoreSfondo(0,15);
+                        Sleep(1500);
+                        print_slow(cout,"\nYou fucked up, maybe it was destin to not get out of this place\n",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nYou feel your right tier against the prius tier\nIt ends up flipping your car to the side\nThe airbeg goes off\nYou start feeling fine glass shards all over your body that is now sitting sideways\n",70);
+                        Sleep(1500);
+                        print_slow(cout,"\nAnd after the chaos, everything sits sitll now\n",60);
+                        Sleep(250);
+                        print_slow(cout,"You try to control your breath, you panicked a little bit",60);
+                        Sleep(3000);
+                        print_slow(cout,"You should open your eyes back before really passing out.",60);
+                        Sleep(1000);
+                        cambiaColoreSfondo(7,0);
+                        Sleep(50);
+                        print_slow(cout,"You were really hoping for someone to come and rescue you but no luck,\nYou get out from the only possible door climbing the seats\n",60);
+                        Sleep(1200);
+                        print_slow(cout,"You feel dizzy and lost, your head hurts\nYou're not bleeding but your spine and legs hurt",60);
+                        Sleep(600);
+                        print_slow(cout,"You should probably go confront the prius driver that is standing in front of her car parked on the emergency exit\nAnd of curse it's a woman\n",60);
+                        Sleep(1500);
+                        print_slow(cout,"\nWeird her car has no damage at all\n",60);
+                        Sleep(750);
+                        print_slow(cout,"\nEven tho she has shades on you can see her mad expression from her mouth even far away\nEven weirer tho is her perfect black suit that looks fresh out of the ironing board\n",60);
+                        Sleep(800);
+                        print_slow(cout,"\nHer airbag didn't went off\nShe dosen't look hurt thankfully\nYou walk close to her to talk\n",60);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        Sleep(1000);
+                        print_slow(cout,"\n-Hey im so sorry i-\n",50);
+                        print_slow(cout,"\nYou don't even have time to finish the sentence that she greets you with a slap on the cheek\n",60);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-What the fuck do you think you're doing?\n",62);
+                        Sleep(1000);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nYou look at her in confusion, i mean you understand the frustation and probably the scare but that was rude\n",60);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        Sleep(500)
+                        print_slow(cout,"\n-ma'am you can't just do that i was trying to ap-\n",50);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-And you can't leave\n",45);
+                        Sleep(1400);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-What?\n",50);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nShe slaps you again\n",60);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-YOU CAN'T\n",70);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        Sleep(300);
+                        print_slow(cout,"\nShe raises her tone in anger before taking a deep breth mid sentence and then reprase it\n",60);
+                        Sleep(1000);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-You can't leave this city, there is nothing out there\n",60);
+                        Sleep(2000);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-What are you talking about are you insane?\n",50);
+                        Sleep(250);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-The real way out is within the city\n",69);
+                        Sleep(750);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nHow does she knows i was going to the airport?\nFuck i gotta call a tow truck\n",60);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"-Ok ma'am thanks for the tip and sorry for hitting you\n",50);
+                        Sleep(500);
+                        print_slow(cout,"-Have a great day.\n",60);
+                        Sleep(1500);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nYou walk a few steps away and take your phone to call the insurance",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nThe woman is still there, didn't move an inch\nAs the phone rings she makes an hand gesture telling you to come closer",60);
+                        Sleep(600);
+                        print_slow(cout,"\nYou keep giving her the weird look in hope of making her stop\n",60);
+                        Sleep(600);
+                        print_slow(cout,"\nThis just makes her smile,\nSo you step closer, around 2feet from her\n",60);
+                        Sleep(750);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-Closer\n",46);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        Sleep(100);
+                        print_slow(cout,"\nYou take another step towards her\n",60);
+                        Sleep(800);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-Closer\n",50);
+                        Sleep(1000);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nAnd another one\n",60);
+                        Sleep(500);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-A little more..\n",50);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        Sleep(600);
+                        print_slow(cout,"\nAs you take another step you ask\n",60);
+                        Sleep(350);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-What do you want?\n",50);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        Sleep(200);
+                        print_slow(cout,"\nYou are almost face to face with her\nThis is weird\nShe lower her shades a little showing her dark black eyes\nThen she whispers\n",60);
+                        Sleep(750);
+                        SetConsoleTextAttribute(hc, 0x72);
+                        print_slow(cout,"\n-You should go back to your place, take a rest\n",62);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nThen another slap flyes on your face",60);
+                        Sleep(20);
+                        cambiaColoreSfondo(0,15);
+                        Sleep(35);
+                        print_slow(cout,"\nYou instinctively close your eyes\nBut you don't feel any pain\nActually you don't feel able to move your whole body anymore\nBut you can still perceive your body falling on the ground\n\nIs this death?\n\nYou can still hear your thoughts tho\n",60);
+                        Sleep(5000);
+                        print_slow(cout,"\nBut it's just a matter of minutes as they begin to drift away too\n",60);
+                        Sleep(4000);
+                        print_slow(cout,"\nWill time heal anything by itself?",60);
+                        Sleep(600);
+                        system("cls");
+                        cambiaColoreSfondo(0,15);
+                        for (int i = 0; i <= total; ++i) {
+                        displayProgressBar(i, total);
+                        std::this_thread::sleep_for(std::chrono::milliseconds(50));}
+                        Sleep(200);
+                        goto label2;
+                    }
+                    else(ba==2){//Scelta numero: 1.2.2.1.2.2
+
+                    }
                 }
             }
             else(f==2);{//Scelta numero: 1.2.2.2
