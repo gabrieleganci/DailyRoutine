@@ -257,6 +257,7 @@ ______      _ _         ______            _   _
     int a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,z,aa,ab,ac,ad,ae,af,ag,ah,ai,aj,ak,al,am,an,ao,ap,aq,ar,as,at,au,av,aw,ax,ay,az,ba,bb,bc,bd,be,bf,bg,bh,
     na,nb,zzz,xxx,nc,nd,ne,nf,ng,nh,ni,nj,nk,nm,nn,no,np,nq,ns,nt,nu,nv,nw,nx,ny,nz,eh,qq,jj,gg;
     string nome;
+    bool kms = false;
     std::string codess;
     HWND hwnd = GetConsoleWindow(); 
     KeepWindowOnTop(hwnd);
@@ -443,7 +444,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\n-Wanna come up?\n\n",58);
                     SetConsoleTextAttribute(hc, 0x70);
                     Sleep(400);
-                    cout<<"1)Yes            2)Nah\n"<<endl;
+                    cout<<"1)Yes            2)Nah\n\n";
                     cin>>ag;
                     if(ag==1){//Scelta numero: 1.1.1.1.1.1
                         SetConsoleTextAttribute(hc, 0x78);
@@ -706,7 +707,26 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nShe says as she hands you the joint she had been smoking\nThere is something deeply troubled about this girl\nShe acts like she knows you, it's fair only because you work in the same place but still...\nShould you stay at her game?\n\n1)Yes         2)Nope\n\n",60);
                         cin>>gg;
                         if(gg==1){//Scelta numero: 1.1.1.2.1.1.1.1
+                            PlaySound(TEXT("./music/GS.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            SetConsoleTextAttribute(hc, 0x78);
+                            print_slow(cout,"\n-At least im glad im not the only one somoking in this office\n",55);
+                            Sleep(400);
+                            SetConsoleTextAttribute(hc, 0x75);
+                            print_slow(cout,"\n-Won't you already feel special,",50);
+                            Sleep(200);
+                            print_slow(cout," don't get ahead of yourself\n",50);
+                            Sleep(750);
                             SetConsoleTextAttribute(hc, 0x70);
+                            print_slow(cout,"\nHer rage bait doesn't touch you\n",60);
+                            Sleep(200);
+                            SetConsoleTextAttribute(hc, 0x78);
+                            print_slow(cout,"\n-Aren't we all special in out own way\n",55);
+                            Sleep(500);
+                            SetConsoleTextAttribute(hc, 0x75);
+                            print_slow(cout,"\n-Yeah sure,",50);
+                            Sleep(200);
+                            print_slow(cout,"\n but someone is always more special then some others",58);
+                            
                             //ROOT DEL SEX ROOT DEL SEX ROOT DEL SEX DAI DAI DAI DAI DAI
                             //dafinire
                         }
@@ -1603,10 +1623,11 @@ ______      _ _         ______            _   _
                     else(as==2);{//Scelta numero: 1.1.2.2.1.2
                         print_slow(cout,"\nYour heart beats out of your chest,\nYou've never been in such a situation\nYou feel trapped by this office\nYou don't want to come out of it anymore\nMaybe hell won't be so cruel if you don't bring someone with you\nYou put the pistol barrel and press the trigger\n",60);
                         system("cls");
-                        Sleep(750);
+                        Sleep(200);
+                        if(kms == true){
+                        PlaySound(TEXT("./music/DBTH.wav"), NULL, SND_FILENAME | SND_ASYNC);
                         cambiaColoreSfondo(12, 15);
                         Sleep(80);
-                        PlaySound(TEXT("./music/DBTH.wav"), NULL, SND_FILENAME | SND_ASYNC);
                         cambiaColoreSfondo(0,15);
                         Sleep(500);
                         for (int i = 0; i <= total; ++i) {
@@ -1629,8 +1650,66 @@ ______      _ _         ______            _   _
                         Sleep(750);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nYou grab your phone and compose her number\nGood memory is useful in situation like this\nYou hit call\n",60);
-                        Sleep(17250);
+                        Sleep(5000);
+                        print_slow(cout,"\nShe picks up\n",60);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        cout<<"\n-"<<nome;
+                        print_slow(cout," you never call me, specially this early in the moring\n",54);
+                        Sleep(80);
+                        print_slow(cout,"-is everything alright?\n",57);
+                        Sleep(100);
                         SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-Yeah ",52);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        print_slow(cout,"lain",52);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,", even tho i called you because something is troubling me.\n",55);
+                        Sleep(23);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        print_slow(cout,"\n-soot your shot\n",57);
+                        Sleep(300);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-I-",60);
+                        Sleep(50);
+                        print_slow(cout,"\n-I remember you telling me about some blueprint going missing...\n",55);
+                        Sleep(100);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        print_slow(cout,"\n-yeahh\n",50);
+                        Sleep(75);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-Are you sure that this is not messing with something?",56);
+                        Sleep(200);
+                        print_slow(cout,"\n-I swear if i clock at work and discover that my boss is dead i...\n",54);
+                        Sleep(120);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        cout<<"\n-"<<nome;
+                        print_slow(cout," what the fuck are you talking about ahahah",48);
+                        Sleep(40);
+                        print_slow(cout,"-about the blueprint, i was actually worried for that,\n",55);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        Sleep(400);
+                        print_slow(cout,"\nYou start getting a little anxous\n",60);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"-What do you mean ",58);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        print_slow(cout,"Lain\n",58);
+                        Sleep(200);
+                        print_slow(cout,"\n-listen boy it's a difficult topic,\n-i'll send a letter with some stuff i figured\n",56);
+                        Sleep(400);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-Ok",56);
+                        Sleep(100);
+                        print_slow(cout,"\n-Thanks ",58);
+                        SetConsoleTextAttribute(hc, 0x7D);
+                        print_slow(cout,"Lain\n",58);
+                        Sleep(150);
+                        SetConsoleTextAttribute(hc, 0x7C);
+                        cout<<"\n****************CALL ENDED****************\n";
+                        Sleep(500);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nSeconds leter the letter arrives\n",60);
+                        system("start https://drive.google.com/file/d/1JZSzUnprQvMXHNIxEBSSG0AnLbWvl2VC/view?usp=drive_link");
+                        Sleep(10000);
                         auto start = std::chrono::steady_clock::now();
                         while (true) {
                         auto now = std::chrono::steady_clock::now();
@@ -1643,6 +1722,13 @@ ______      _ _         ______            _   _
                         }
                         MessageBox(NULL,"This program encountered a fatal error!","You were disconnected", MB_ICONQUESTION | MB_OK | MB_TOPMOST | MB_SYSTEMMODAL);
                         exit(0);
+                        }
+                        else{
+                            for (int i = 0; i <= total; ++i) {
+                            displayProgressBar(i, total);
+                            std::this_thread::sleep_for(std::chrono::milliseconds(50));}
+                            goto label2;
+                        }
                     }
                 }
                 else(m==2);{//Scelta numero: 1.1.2.2.2
@@ -1846,6 +1932,7 @@ ______      _ _         ______            _   _
                         }
                         else(w==2);{//Scelta numero: 1.1.2.2.2.2.2
                             PlaySound(TEXT("./music/Purp.wav"), NULL, SND_FILENAME | SND_ASYNC);
+                            kms = true;
                             print_slow(cout,"\nShe works for a big corpo too\nActually one of the biggest\nYou remember recently reading about some huge new discovery they made\nNot really remember what\nYou start clibing the few stairs in front of the HUGE complex office building,\nFrom the outside at least looks like one of these office where employees are well treated...\nAnd well, allowed to have fun\n",60);
                             Sleep(750);
                             print_slow(cout,"\nAnyway, the glass door self opens and you slide in\nBig ass reception with a pretty man at the desk\nYou ask him:\n",60);
@@ -3046,17 +3133,29 @@ ______      _ _         ______            _   _
                     }
                 }
                 else(s==2);{//Scelta numero: 1.2.2.2.2
-                    print_slow(cout,"\nThese stairs makes you tense,\nYou start backing from them while still keeping an eye on them\n",60);
-                    Sleep(1000);
                     PlaySound(TEXT("./music/WH.wav"), NULL, SND_FILENAME | SND_SYNC);
-                    PlaySound(TEXT("./music/Deadlyness.wav"), NULL, SND_FILENAME | SND_ASYNC );
-                    print_slow(cout,"\nYou notice the further away you go the more you start hearing whispers in the distance\nYou turn around and walk in the direction you came from",60);
+                    PlaySound(TEXT("./music/414.wav"), NULL, SND_FILENAME | SND_ASYNC );
+                    print_slow(cout,"\nThese stairs makes you tense,\nYou start backing from them while still keeping an eye\n",60);
                     Sleep(1000);
-                    print_slow(cout,"\nBut when you turn around\n",60);
+                    print_slow(cout,"\nYou start hearing faint whispers in the air,\nSomething was definitely wrong with those stairs\nYou start walking a little bit faster trying to get away from the strange noises\n",60);
+                    Sleep(5000);
+                    print_slow(cout,"\nYou still wanna visit the forest but don't wanna get in danger with stuff like that\nAs you keep walking your heavy and crusty lungs start filling with fresh air\nThe air is getting colder, the deep dark woods start to get a little more colourful\nA pinkish light seeps trough the leaves\n",60);
+                    Sleep(500);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-Is that ..",54);
+                    Sleep(200);
+                    print_slow(cout,"snow?\n",60);
+                    Sleep(750);
+                    print_slow(cout,"\nA white path ahead of you shines with the sun rays\n",60);
+                    Sleep(500);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-So cool i didn't see snow in ages,",50);
+                    Sleep(300);
+                    print_slow(cout," kind of miss it\n",58);
+                    Sleep(500);
+                    SetConsoleTextAttribute(hc, 0x70);
+                    print_slow(cout,"\nYou start walking down the footpath\nThe surrounding becomes more and more white\nTrees and bushes, snow is all over\nYou knee for a second to touch it, it's cold obviously\nYou draw a smiley face with your finger",60);
                     Sleep(1000);
-                    print_slow(cout,"You just see another set of stairs in front of you",60);
-                    Sleep(1000);
-                    //dafinire
                 }
             }
         }
