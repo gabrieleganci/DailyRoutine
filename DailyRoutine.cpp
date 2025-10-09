@@ -30,7 +30,7 @@ using namespace std;
 using namespace std::chrono;
 namespace fs = std::filesystem;
 
-int cinBloccato() {
+int cinBloccato()() {
     std::string input;
     char ch;
     
@@ -332,16 +332,16 @@ ______      _ _         ______            _   _
     cambiaColoreSfondo(7,0);
     stampaRigaPerRiga(asciiArt, 350);
     print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\nEverything around you is in it's right place\nThe memories of a dream that was better than reality fade away in your mind\nBut it's time to live now\nWhat do you do?\n\n1)Hop off bed.           2)Stay in.\n\n",50);
-    ac = cinBloccato();
+    ac = cinBloccato()();
     if(ac==1){
     print_slow(cout,"\nYou wake up and follow your usual routine,\nCoffee, Quick shower with shave,\nYou dress up in a way that makes you appreciate yourself,\nAnd just like that you are ready to crush the day\nYou exit your boring apartment and surf the streets\nWhat's the next move\n\n1)Go to work           2)Get around\n\n",55);
-    xxx = cinBloccato;
+    xxx = cinBloccato()();
     if(xxx==1){//Scelta numero: 1.1
         print_slow(cout,"\nYou know what you gotta do,\nIf you don't go to work it's gonna be a problem for future you\nAnd you don't want that\nSo you take your car and go to work like every day\nOnce there, you greet your coworkers and go to your set-up\nThese gray walls make you feel a little dead inside\nYou don't even start working that you notice two SMS\nOne it's from a girl, She's really into you and you are too, She's asking if you want to go to dinner,\nThe other one is from your boss,\nHe wants to meet you ASAP,\nHe's not saying why tho so this does not make you hope for good\nBut you know you can only take one message\n\nWho will it be?\n\n1)Cute-girl.          2)Boss.\n\n",55);
-        b=cinBloccato;
+        b=cinBloccato();
         if(b==1){//Scelta numero: 1.1.1
             print_slow(cout,"\nYou don't wanna be rude to your boss, also if you don't really like him,\nBut sometimes it's better to prioritize personal life before business one,\nYou're not sure tho,\n\nWill you accept\n\n1)Accept.           2)Decline.\n\n",55);
-            c=cinBloccato;
+            c=cinBloccato()();
             if(c==1){//Scelta numero: 1.1.1.1
                 print_slow(cout,"\nThe answer seems kind of obvious,\nSince you like her it would make no sense to not go with her right?\nYou say -Sure, let's meet tonight, and propose a restaurant\nShe accepts right away\n'This is the right time' you think between yourself\nAs you keep working with a satisfied look on your face you wait for the work-day to end.\n\nFast forward a few hours,\nAfter work is done you come back to you car and found a rather not cool surprise\nYour car window on the driver side has been totally smashed\nNothing was even stolen since there was nothing valuable inside\nAnd if that didn't suck enough you hear a girl laugh in the distance of the parking lot\n",60);
                 Sleep(100);
@@ -354,7 +354,7 @@ ______      _ _         ______            _   _
                 Sleep(200);
                 SetConsoleTextAttribute(hc, 0x70);
                 print_slow(cout,"\nThis plus the fact she's kinda cute make you even more uncomfortable\nDo You wanna give it a shot?\n\n1)Meet Her         2)Ignore Her\n",60);
-                ae=cinBloccato;
+                ae=cinBloccato()();
                 if(ae==1){//Scelta numero: 1.1.1.1.1
                     Sleep(400);
                     SetConsoleTextAttribute(hc, 0x78);
@@ -469,7 +469,7 @@ ______      _ _         ______            _   _
                     SetConsoleTextAttribute(hc, 0x70);
                     Sleep(400);
                     cout<<"1)Yes            2)Nah\n\n";
-                    ag=cinBloccato;
+                    ag=cinBloccato();
                     if(ag==1){//Scelta numero: 1.1.1.1.1.1
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-Yeah that would be beautiful\n",45);
@@ -509,7 +509,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x70);
                         Sleep (500);
                         print_slow(cout,"\nAshley sprints to her to disarm her and she is actually successful to that due to her speed\nThe woman doesn't let that slip and responds with a kick to the face\nAshley doges that but in doing so falls on the floor which allows the woman to get onto her\n\nYou have so many question but Ashley is in real danger now and you feel like you have to do something\n\n1)Help her           2)Escape\n\n",60);
-                        am=cinBloccato;
+                        am=cinBloccato();
                         if(am==1){//Scelta numero: 1.1.1.1.1.1.1
                             print_slow(cout,"\nYou take a katana weapon from the wall and run to her\nThat shit was made out of real metal\nYou didn't thought that these would have come in handy\nYou approach the girl from behind and slash her in the back\nThen in the neck, again\nThat does not seems to do much damage",60);
                             Sleep (500);
@@ -598,7 +598,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\nAfter that you just hear cough echoing trough the place\nNo one really vibes with you\nYou just exchange eye contact with the guy sitting besides you\n",60);
                     Sleep(750);
                     print_slow(cout,"\n1)Grab a drink           2)'Make some noise'\n",60);
-                    qq=cinBloccato;
+                    qq=cinBloccato();
                     if(qq==1){//Scelta numero: 1.1.1.1.2.1
                         //prendi il drink e quello accanto sono io e ti do la cartella iceberg lui parla di lenny
                     }
@@ -614,7 +614,7 @@ ______      _ _         ______            _   _
                 PlaySound(TEXT("./music/Dateo.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                 Sleep(800);
                 print_slow(cout,"You go to the rest room open the bathroom door\nA weird scene strikes you\n\nThere is a fairly short girl in front of you\nAs soon as she see's you she just sort of paralyze,\nShe's dressed in an unusual way for an office, all black, crop-top and some chains\nShe has a big gutting knife in her hand, A line of blood drips from her wrist on the floor\n\n1)Try to calm her down             2)Join her\n\n",60);
-                n=cinBloccato;
+                n=cinBloccato();
                 if(n==1){//Scelta numero: //Scelta numero: 1.1.1.2.1
                 SetConsoleTextAttribute(hc, 0x70);
                 print_slow(cout,"\nYou stand in shock for a second, You inhale quickly and try to yap something out\n",60);
@@ -668,7 +668,7 @@ ______      _ _         ______            _   _
                 SetConsoleTextAttribute(hc, 0x70);
                 Sleep(400);
                 print_slow(cout,"\nAnd again, the world puts you in weird situations,\nBut this time is even more serious then what you wanted to be\n\n1)End what you started          2)Renounce\n\n",60);
-                af=cinBloccato;
+                af=cinBloccato();
                 if(af==1){//Scelta numero: 1.1.1.2.1.1
                     SetConsoleTextAttribute(hc, 0x78);
                     print_slow(cout,"\n-Oh yes yes ill'show ya\n",50);
@@ -709,7 +709,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"You take your deserved piss and go wash your hands,\nThis still resonates in you a little, sure first time happening\nYou take a second to make yourself up and catch a breath,\nYou walk up to the corridor,",60);
                     Sleep(80);
                     print_slow(cout," you feel a little stressed\nAn idea passes your mind\nYou really wouldn't mind the joint you kept for all this time in your desk drawer\nOr do you?\n\n1)Hit         2)Pass\n\n",60);
-                    jj=cinBloccato;
+                    jj=cinBloccato();
                     if(jj==1){//Scelta numero: 1.1.1.2.1.1.1
                         Sleep(120);
                         print_slow(cout,"\nYou reach for your desk and open the drawer\nBut no joint was there, instead\n",60);
@@ -729,7 +729,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x70);
                         Sleep(150);
                         print_slow(cout,"\nShe says as she hands you the joint she had been smoking\nThere is something deeply troubled about this girl\nShe acts like she knows you, it's fair only because you work in the same place but still...\nShould you stay at her game?\n\n1)Yes         2)Nope\n\n",60);
-                        gg=cinBloccato;
+                        gg=cinBloccato();
                         if(gg==1){//Scelta numero: 1.1.1.2.1.1.1.1
                             PlaySound(TEXT("./music/GS.wav"), NULL, SND_FILENAME | SND_ASYNC);
                             SetConsoleTextAttribute(hc, 0x78);
@@ -955,7 +955,7 @@ ______      _ _         ______            _   _
                     system("start https://drive.google.com/file/d/1O9jk6UsWhP6OwhHU69WtQVrNANYI0CLF/view?usp=drive_link");
                     Sleep(8000);
                     print_slow(cout,"'Alice Kyeler' and some infos\nFound some to do tonight huh\nYou piss and get back to your desk\nLittle time till the work day is done\n\n1)Work              2)Go back home\n\n",60);
-                    o=cinBloccato;
+                    o=cinBloccato();
                     if(o==1){//Scelta numero: 1.1.1.2.2.1
                         PlaySound(TEXT("./music/LYETDWTS.wav"), NULL, SND_FILENAME | SND_ASYNC);
                         print_slow(cout,"\nAnd so you keep working\n\n1)Work            2)Keep working\n\n",60);
@@ -1029,7 +1029,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nYou take your phone out your pocket and dial her number\n",60);
                         Sleep(5000);
                         print_slow(cout,"\n No one picks up\nAgain, the same\nYou start getting anxious\nShe must have done it\nYou feel like you've fucking killed her\nYou look down the roof\n17th floor\nEnough to transform your body in a bunch of guts spread over the sidewalk\nYour brain goes silent for a second\n\n1)Jump             2)Go home\n\n",60);
-                        r=cinBloccato;
+                        r=cinBloccato();
                         if(r==1){//Scelta numero: 1.1.1.2.2.1.1
                             print_slow(cout,"You stare down\nYou feel your heart beating really strong\nThoughts are clouded\nYou are step away for the edge\nFrom death\nYou look to the moon\nIt's always been a symbol to you\nOf the goals you wanted to reach\nSo visible but so far at the same time\nYou step forward with your eyes closed\n\n",60);
                             Sleep(5000);
@@ -1163,7 +1163,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nWhile you drive back you still can't stop thinking about her\nThat was so surreal but ironic at the same time\nYou eat dinner at home while watching Youtube, usual depression meal\nYou rest to play some games, but you still can't shake the thought of her\nYou take a look again at the badge she gave you",60);
                         Sleep(2000);
                         print_slow(cout,"\nPretty even in the picture\nShould you call her?\n\n1)Call           2)Don't\n\n",60);
-                        p=cinBloccato;
+                        p=cinBloccato();
                         if(p==1){//Scelta numero: 1.1.1.2.2.2.1
                             print_slow(cout,"\nYou type the number on your phone,\nAfter a few rings she pick up the line\n\n . . .\n",60);
                             SetConsoleTextAttribute(hc, 0x75);
@@ -1180,7 +1180,7 @@ ______      _ _         ______            _   _
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"-LeT's pLaY ViDeOgAmEs\n\n",45);
                             SetConsoleTextAttribute(hc, 0x70);
-                            al=cinBloccato;
+                            al=cinBloccato();
                             if(al==1){//Scelta numero: 1.1.1.2.2.2.1.1
                                 SetConsoleTextAttribute(hc, 0x78);
                                 cout<<"\n-Why were you killing yourself?\n";
@@ -1314,7 +1314,7 @@ ______      _ _         ______            _   _
             Sleep(500);
             SetConsoleTextAttribute(hc, 0x70);
             print_slow(cout,"\n\nYou're not that surprised, You haven't been really productive lately\nBut that does not stop your brain to get blurry and filled with rage\n\n1)Keep it.           2)Express it.\n\n",60);
-            g=cinBloccato;
+            g=cinBloccato();
             if(g==1){//Scelta numero: 1.1.2.1
                 print_slow(cout,"\nYou swallow the pill and try to even force a smile out of your lips\n",55);
                 Sleep(500);
@@ -1329,7 +1329,7 @@ ______      _ _         ______            _   _
                 SetConsoleTextAttribute(hc, 0x70);
                 Sleep(500);
                 print_slow(cout,"\nYou say as you notice that you already unplugged it\nThen why the fuck is it ringing?\n\n1)Pick it up            2)Let it ring\n\n",55);
-                l=cinBloccato;
+                l=cinBloccato();
                 if(l==1){//Scelta numero: 1.1.2.1.1
                     label4: print_slow(cout,"\n\nYou're kinda weirded out but you still grab the cornet\nA surprisingly crystal clear voice of a woman speaks form the other side\n",60);
                     Sleep(500);
@@ -1356,7 +1356,7 @@ ______      _ _         ______            _   _
                     Sleep(1000);
                     SetConsoleTextAttribute(hc, 0x70);
                     cout<<"\n1)Can you get me a coffee?           2)Take the laptop and run\n\n";
-                    aa=cinBloccato;
+                    aa=cinBloccato();
                     if(aa==1){//Scelta numero: 1.1.2.1.1.1
                         Sleep(500);
                         SetConsoleTextAttribute(hc, 0x78);
@@ -1450,7 +1450,7 @@ ______      _ _         ______            _   _
                         Sleep(1000);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nOn the right door there are apparent white scratches since your car is black,\nSome of theme are just random lines,\nOther ones looks like a bad drawing of eyes\nYou also notice a little piece of paper all folded up sitting on the sidewalk right beside the driver seat\n\n1)Investigate scratches                2)Pick up note\n\n",60);
-                        ah=cinBloccato;
+                        ah=cinBloccato();
                         if(ah==1){//Scelta numero: 1.1.2.1.1.1.2
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"\n-This is unacceptable, i paid way too much\n",30);
@@ -1478,7 +1478,7 @@ ______      _ _         ______            _   _
                             Sleep(500);
                             print_slow(cout,"You say thanks to Pam and once again return to your car\nThe note is gone, probably the wind carried it away\nYou start driving to the coordinates, it's a calm ride that makes you reflect on the current situation\nYou don't know what expect, you don't feel that a lot in this life made of monotony\nYou park your car and walk to the river\n\nThe coordinates point right in front of you\nYou look around for a second and just feel the wind on your face\nThis place is beautiful you've never been here before\nYou walk just a few steps ahead just to notice a weird pile of rocks near a bush\nWeird since there are really no rocks around at all\n\n1)Search the rocks            2)Rest near the river\n\n",60);
                             //aggiustare le scewlte rivedere dialoghi
-                            an=cinBloccato;
+                            an=cinBloccato();
                             if(an==1){//Scelta numero: 1.1.2.1.1.1.1
                                 //dafinire
                             }
@@ -1505,7 +1505,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\n-Hey man what the fuck?\n",37);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nYou start running trough the office stalls\nYour heart rate start raising as soon you realize everybody is looking at you\nYou go trough a few other rooms and soon realize you can't run in circles\n\n1)Hide in the bathroom           2)Go down the stairs\n\n",45);
-                        ak=cinBloccato;
+                        ak=cinBloccato();
                         if(ak==1){//Scelta numero: 1.1.2.1.1.2.1
                             print_slow(cout,"\n\nYou turn towards the bathrooms and enter the man one\nYou see few coworkers washing their hands, familiar faces\nYou enter the toilet room and lock the door behind you\n",50);
                             Sleep(1000);
@@ -1542,7 +1542,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\nAnd again, you fucked,\nYou look at both of them and almost shed a tear\nYou don't know how to feel\nNow you really seem like the bad one,\nYou don't know what to do\n",60);
                             Sleep(1000);
                             print_slow(cout,"\n\n1)Do nothing           2)'Emergency exit'\n\n",60);
-                            ax=cinBloccato;
+                            ax=cinBloccato();
                             if(ax == 1){//Scelta numero: 1.1.2.1.1.2.1.1
                                 //dafinire
                             }
@@ -1563,7 +1563,7 @@ ______      _ _         ______            _   _
                 }
                 else(l==2);{//Scelta numero: 1.1.2.1.2
                     print_slow(cout,"\nThe phone keeps ringing and ringing\nYou let it until it's done\nAs soon as it stops you feel a really strong headache\nYour view gets dark for a second like you just got iron deficiency\nThen in the distance you hear another phone\nThen another\nAnd another\nIt gets to a point where you think that all the phones in the office are ringing\nYou feel like your ears are bleeding\n\n1)Pick up             2)Break them\n\n",55);
-                    ab=cinBloccato;
+                    ab=cinBloccato();
                     if(ab==1){//Scelta numero: 1.1.2.1.2.1
                         goto label4;
                     }
@@ -1579,7 +1579,7 @@ ______      _ _         ______            _   _
                         PlaySound(TEXT("./music/ICF.wav"), NULL, SND_ASYNC);
                         Sleep(500);
                         print_slow(cout,"\nThat sure is weird\n\n1)Go away          2)Push the statue\n\n",60);
-                        aq=cinBloccato;
+                        aq=cinBloccato();
                         if(aq==1){//Scelta numero: 1.1.2.1.2.2.1
                             print_slow(cout,"\nYou don't wanna get into more trouble\n",60);
                             //dafinire
@@ -1612,7 +1612,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\nThe frustration of the whole month flows through you blood and makes it boil\nYour boss is there in front of you looking directly in your eyes\nAlmost smiling\nYou look back at him and laugh\nYou start picking up random objects form his desk and trowing them at him\nSeeing the stapler hitting his forehead was so satisfying\nUntil, blinded by rage you accidentally throw the paper cutter, directly at his face\n",60);
                 Sleep(750);
                 print_slow(cout,"\nYou hit his eye\nHe starts bleeding, your blood goes cold\nHe starts screaming too\nThe comfort of the anger is gone, and you're just left in a mess you caused\nHow will you escape that?\n\n1)'Go postal'            2)Get out\n\n",55);
-                m=cinBloccato;
+                m=cinBloccato();
                 if(m==1){//Scelta numero: 1.1.2.2.1
                     print_slow(cout,"\nYou're into it too deep, the mess won't fix itself\nAnd when someone else is gonna 'take care of it' it will only mean to arrest you\nYou stand up\n",60);
                     Sleep(500);
@@ -1639,7 +1639,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\nHe of curse doesn't\nIndeed he screams louder\nCalling for help this time\n",60);
                     Sleep(750);
                     print_slow(cout,"\nYour mind is going numb\nThere's only two options\n\n1)Kill him            2)Kill yourself\n\n",60);
-                    as=cinBloccato;
+                    as=cinBloccato();
                     if(as==1){//Scelta numero: 1.1.2.2.1.1
                         //damettere una scelta in cui prima di uccidrelo ti chiama mamma
                         //dafinire
@@ -1763,7 +1763,7 @@ ______      _ _         ______            _   _
                     Sleep(1000);
                     SetConsoleTextAttribute(hc, 0x70);
                     print_slow(cout,"\nYou say while you leave the room\nWhen did you get so cold?\nYou probably can't even answer that yourself\nYou leave the building without taking anything back\nDon't really care about all these objects\nAs soon as you are out\nYou feel like you have a lot of energy in you\nSo you start running\nAnd running\nAfter a lot of meters tho\nYou bump into a girl, and make her fall on the ground\nAll of her notes she was holding are sent flying in the air\nYou almost fall too\nYou stop for a sec\n\n1)Help her get up          2)Keep running\n\n",60);
-                    u=cinBloccato;
+                    u=cinBloccato();
                     if(u==1){//Scelta numero: 1.1.2.2.2.1
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-Fuck im so sorry, are you ok?\n",40);
@@ -1776,7 +1776,7 @@ ______      _ _         ______            _   _
                         Sleep(1200);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nShe says while holding your hand to stand up\nYou quickly grasp the notes, your heart is beating out of your chest\nYou aren't really used to exercise lately\nWhile you grab the notes you see a few interesting things\nUnder a category called 'The chosen one's' there are photos of few men\nThere is a picture of yourself\n\n1)Keep walking            2)Ask about it\n\n",55);
-                        v=cinBloccato;
+                        v=cinBloccato();
                         if(v==1){//Scelta numero: 1.1.2.2.2.1.1
                             print_slow(cout,"\nYou give her the notes back\n",60);
                             SetConsoleTextAttribute(hc, 0x78);
@@ -1796,7 +1796,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\nYou start walking normally again and seeing the world for what it is\nIt's hard to accept the firing but it's fine you're young and still can do whatever\nYou didn't even liked that job at all, just pam\nAnd that encounter with the woman almost made you forget it already\nNow that i think about it why did she point in the end? ... to what?\nThere is basically nothing in this area other than workspaces, cars, and",60);
                             Sleep(750);
                             print_slow(cout," a sad phone cabin\n\nIt's a normal phone cabin\nPretty dirty too\nWith graffiti all over the exterior\nYou keep walking your way wandering what to do next\nBut as soon as you walk past the cabin the phone starts ringing\nThese things can riceve call too?\nYou never used one so you really don't actually know\n\n1)Pick it up             2)Let it ring\n\n",55);
-                            z=cinBloccato;
+                            z=cinBloccato();
                             if(z==1){//Scelta numero: 1.1.2.2.2.1.1.1
                                 Sleep(750);
                                 SetConsoleTextAttribute(hc, 0x78);
@@ -1860,12 +1860,12 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nYou don't even care anymore\nYou straight up laugh, at this point it's just funny\nThe poor girl trips and fall as the wind plays with your tie\nSomeone screams, but you keep running\nYou feel somewhat alive\n",55);
                         print_slow(cout,"You run crossing a red light, a car honks at you\nYou feel so out of place doing this in the middle of  the city but it's also so relieving\nYou keep running towards north for a bit when you realize your about to pass in front of the working place of a friend\n\n",45);
                         cout<<"1)Keep running           2)Stop by\n\n";
-                        w=cinBloccato;
+                        w=cinBloccato();
                         if(w==1){//Scelta numero: 1.1.2.2.2.2.1
                             print_slow(cout,"\nDon't care at all, your steps on the ground never felt so good\nThe sun is shining and you feel like breathing for the first time\nThis is so much fun, You see the environment changing around you\nYou start running quicker\n",43);
                             print_slow(cout,"You see all the faces of the people for a split second\nYou really don't know what to do next without a job\nYou just want to enjoy the moment\nThe dream becomes even more real when you realize you're basically out of town\nThe main color surrounding you now has became the yellow of all the dry grass of the camps around the road\nThe sidewalk ends there, is only a gray road with patches of wheat to the sides\n\n",37);
                             cout<<"1)Keep running           2)Stop\n\n";
-                            aj=cinBloccato;
+                            aj=cinBloccato();
                             if(aj==1){//Scelta numero: 1.1.2.2.2.2.1.1
                                 print_slow(cout,"\nYou run and run in the middle of the road\nYou're not even sweating,\n",35);
                                 print_slow(cout,"Funny how sometimes your brain decides to release random chemicals\nThe fact that your dressed so well makes it even funnier\nSome cars honk at you, you laugh at them\n",22);
@@ -1894,7 +1894,7 @@ ______      _ _         ______            _   _
                                 print_slow(cout,"\nTo where?\n",100);
                                 Sleep(500);
                                 print_slow(cout,"\nWhere are you going to go at this point?\nWhat is left?\nYou look around and there is no surrounding\nIt's all pitch white\nFor what you know the bottom can be endless\nEverything is quite there aren't even waves\nThe only sounds are created from you in here\nThere really isn't much to do\n\n1)Swim          2)Scream for help\n\n",60);
-                                az=cinBloccato;
+                                az=cinBloccato();
                                 if(az==1){label7:
                                     print_slow(cout,"\nYou start heading in front of you\nYou swim for about 10 minutes, until you feel tired,\nThen you stop and look around\nNo land, nothing at all, still white\n\n1)Swim again          2)Scream for help\n\n",60);
                                     cin>>ay;
@@ -2097,7 +2097,7 @@ ______      _ _         ______            _   _
                             SetConsoleTextAttribute(hc, 0x70);
                             Sleep(500);
                             print_slow(cout,"\nShe cracks a smile\nShe didn't even talked about the coat\nSituation is getting a little weird.\n\n1)Go away             2)Help her\n\n",60);
-                            au=cinBloccato;
+                            au=cinBloccato();
                             if(au==1){//Scelta numero:1.1.2.2.2.2.2.1
                                 //dafinire
 
@@ -2399,7 +2399,7 @@ ______      _ _         ______            _   _
     }
     else(xxx==2);{//Scelta numero: 1.2
         print_slow(cout,"\nYou're tired to go every day in the same place,\nYou need something different today\nYour city is big and you want to have some fun\nSo you start walking to your car parked down the block\nWhere were you go?\n\n1)Go visit an old friend            2)Just drive around\n\n",55);
-        d=cinBloccato;
+        d=cinBloccato();
         if(d==1){//Scelta numero: 1.2.1
             print_slow(cout,"\nYou remember Josh an old friend of yours\n",60);
             SetConsoleTextAttribute(hc, 0x78);
@@ -2408,7 +2408,7 @@ ______      _ _         ______            _   _
             print_slow(cout," you think\nYou calmly drive to his house\nA mid-range, average house in a not too good neighborhood near the forrest\nYou park in front of it, flick the cigarette out of the window and walk to his porch\nYou ring the bell",60);
             Sleep(1750);
             print_slow(cout,"\nNo one answers\n\n1)Go somewhere else.            2)Peek the window.\n\n",60);
-            e=cinBloccato;
+            e=cinBloccato();
             if(e==1){//Scelta numero: 1.2.1.1
                 print_slow(cout,"\n\nYou don' wanna be too invasive,\nMaybe he's asleep or not in the house\nAnd also, you don't wanna go from an house to another\n",60);
                 goto label3;
@@ -2419,7 +2419,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"`That dooshbag must be sleeping` ",60);
                 SetConsoleTextAttribute(hc, 0x70);
                 print_slow(cout,"\nYou ring a couple more times and see him flinch a little on his throne\nFrom the outside you notice that the place is filthy\nMultiple beer cans and alcohol bottles cover the small living room table\n\n1)Go somewhere else.          2)'Welcome yourself'\n\n",60);
-                h=cinBloccato;
+                h=cinBloccato();
                 if(h==1){//Scelta numero: 1.2.1.2.1
                     print_slow(cout,"\nWow looks like he's not doing great\n",60);
                     SetConsoleTextAttribute(hc, 0x78);
@@ -2435,7 +2435,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"'that idiot never change'",40);
                     SetConsoleTextAttribute(hc, 0x70);
                     print_slow(cout," You think giggling\nOpen the door and see something unexpected\nThe living room where Josh is sleeping is way too silent\nJosh's house is built in a weird way,\nBasically the kitchen and the saloon are in the same big room, both near the entrance\nYou take a few steps inside and first thing you notice is the table, There are few Jack bottles and a note\n\n1)Explore the house             2)Read the note.\n\n",60);
-                    eh=cinBloccato;
+                    eh=cinBloccato();
                     if(eh==1){//Scelta numero: 1.2.1.2.2.1 La root giusta per aprire il basement
                         print_slow(cout,"\nYou look at Josh for a second, completely passed out\nYou calmly move around the house, you basically know it as your pockets at this point\nYou get out of the big room and walk towards the rooms\nEverything is still and filthy as usual at this point\nJosh's room is instead surprisingly clean, like it has been cleaned recently\nIn depth ",60);
                         Sleep(1000);
@@ -2458,7 +2458,7 @@ ______      _ _         ______            _   _
                         Sleep(400);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nInspecting it closer you notice a small hole innit\nAt first you try looking trough it but realize it's useless since you see nothing the other way\nOn a second inspection you notice that is more familiar than what you thought\nIt's a USB port\nWell nothing you can do about it\nSo you climb back up and re-enter the house\n\n1)Read the note.            2)Wake up Josh.\n\n",60);
-                        aw=cinBloccato;
+                        aw=cinBloccato();
                         if(aw==1){//Scelta numero: 1.2.1.2.2.1.1
                             print_slow(cout,"\nYou stealthily take the note and start reading\n\n",60);
                             system("start https://drive.google.com/file/d/1aTSZNnLV8ATaMhYtNAZFofOvp5CdN3R_/view?usp=drive_link");
@@ -2505,7 +2505,7 @@ ______      _ _         ______            _   _
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x70);
                             print_slow(cout,"\nHe nods still zoned out\nThen heads towards the bathroom\nYou go to the kitchen and pick the black trash bags from a drawer\nYou start trowing various cans and bottles in the bag\nYou clean first the table, then the small desk, then the shelf\nWhile cleaning on there you see two envelopes\nYou know it isn't right to go trough someone else's stuff\nBut curiosity is eating you inside\nYou have to open at least one\n\n1)Envelope 1           2)Envelope 2\n\n",60);
-                            at=cinBloccato;
+                            at=cinBloccato();
                             if(at==1){//Scelta numero: 1.2.1.2.2.1.2.1
                                 print_slow(cout,"\nYou look at the envelope on the left\nIt comes in a black envelope, unusual\nYou reach to open it and notice that someone already opend it\n",60);
                                 Sleep(750);
@@ -2541,7 +2541,7 @@ ______      _ _         ______            _   _
                         system("start https://drive.google.com/file/d/1aTSZNnLV8ATaMhYtNAZFofOvp5CdN3R_/view?usp=drive_link");
                         Sleep(22000);
                         print_slow(cout,"That's fucked up\nYou wasn't expecting that at all\nYou put back the letter and think for a bit\n\n1)Wake up Josh            2)Explore the House\n\n",60);
-                        j=cinBloccato;
+                        j=cinBloccato();
                         if(j==1){//Scelta numero: 1.2.1.2.2.2.1
                             print_slow(cout,"\nYou look at Josh, poor guy going trough all that\nYou should cheer him a little up since you're here\nYou shout:\n",60);
                             SetConsoleTextAttribute(hc, 0x78);
@@ -2576,7 +2576,7 @@ ______      _ _         ______            _   _
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x70);
                             print_slow(cout,"\nHe nods still zoned out\nThen heads towards the bathroom\nYou go to the kitchen and pick the black trash bags from a drawer\nYou start trowing various cans and bottles in the bag\nYou clean first the table, then the small desk, then the shelf\nWhile cleaning on there you see two envelopes\nYou know it isn't right to go trough someone else's stuff\nBut curiosity is eating you inside\nYou have to open at least one\n\n1)Envelope 1           2)Envelope 2\n\n",60);
-                            ao=cinBloccato;
+                            ao=cinBloccato();
                             if(ao==1){//Scelta numero: 1.2.1.2.2.2.1.1
                                 print_slow(cout,"\nYou look at the envelope on the left\nIt comes in a black envelope, unusual\nYou reach to open it and notice that someone already opend it\n",60);
                                 Sleep(1000);
@@ -2624,7 +2624,7 @@ ______      _ _         ______            _   _
                                 SetConsoleTextAttribute(hc, 0x78);
                                 print_slow(cout,"-Go on a boat trip\n\n",60);
                                 SetConsoleTextAttribute(hc, 0x70);
-                                bb=cinBloccato;
+                                bb=cinBloccato();
                                 if(bb==1){//Scelta numero: 1.2.1.2.2.X.X.X.1
                                     //finale felice in cui vai ad un festival con josh e si trova una piskella
                                 }
@@ -2720,7 +2720,7 @@ ______      _ _         ______            _   _
             Sleep(200);
             SetConsoleTextAttribute(hc, 0x70);
             print_slow(cout,"\nSo you enter you car and speed off\nDriving freely makes you feel good\nYou never know what life has to offer you\nYou think as the gray of the city starts turning into green of the nature\nAll of a sudden a surprise actually strikes you\nIt's a long line of traffic in the middle of nothing\n\n1)Wait for it to pass.             2)Get out the car.\n\n",60);
-            f=cinBloccato;
+            f=cinBloccato();
             if(f==1){//Scelta numero: 1.2.2.1
                 print_slow(cout,"\nYou decide to take it easy as you should,\nYou roll down the windows and let some of that fresh air in.\n",60);
                 Sleep(2000);
@@ -2747,7 +2747,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\nYou reach to the car drawer and open it\nInside other then the car insurance and a few papers there is something you care more about\nA lovely rolled joint\nIn the calm of the traffic you put it in your mouth and light it up\nIt's 11:34, you usually don't smoke this early\nThe time passes, the traffic slowly moves\n",60);
                 Sleep(2000);
                 print_slow(cout,"\nWhere are you even going?\n\n1)Go to the beach           2)Go to the airport\n\n",60);
-                ar=cinBloccato;
+                ar=cinBloccato();
                 if(ar==1){//Scelta numero: 1.2.2.1.1
                     print_slow(cout,"\nYou think going to the beach is a good idea\nIt's not too far out of town,\nAnd it's literally straight from now until like 4 exits\n",60);
                     Sleep(1000);
@@ -2769,7 +2769,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\nMaybe now that you can finally go out of this place you will have more chances\nIt's a weird feeling but you feel like this city is keeping you stuck\nYou're not made for this, you have always been a free soul\nYou always liked to explore\nLiving closed in a box it's not your thing",60);
                     Sleep(2500);
                     print_slow(cout,"\n\n1)Steer            2)Don't Steer\n\n",60);
-                    ba=cinBloccato;
+                    ba=cinBloccato();
                     if(ba==1){//Scelta numero: 1.2.2.1.2.1
                         print_slow(cout,"\nYou keep thinking at where you should go after arriving to the airport\nThe world is so big and unexplored\nFinally you can give a sense to all the hours spent working\n",60);
                         Sleep(1200);
@@ -2924,7 +2924,7 @@ ______      _ _         ______            _   _
                 system("start https://drive.google.com/file/d/1drm0LofUJu2tNm6W-YYlXVTS9cOgN3eY/view?usp=drive_link");//dacambiare
                 Sleep(8000);
                 print_slow(cout,"\nThat look so out of place, You curiously walk up to them\nStepping on them you start feeling them\nJust plain metal stairs, Why would you build in a forest something that looks straight out a office\n\n1)See where they lead          2)Run away\n\n",60);
-                s=cinBloccato;
+                s=cinBloccato();
                 if(s==1){//Scelta numero: 1.2.2.2.1
                     print_slow(cout,"\nYou look down the stairs expecting them just to be covered in dirt\nWhat you actually see it's just\n",60);
                     Sleep(400);
@@ -2935,7 +2935,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\nYou start walking down them slowly\nWith every step they produce a loud metallic sound,\nYou go on for a few minutes.\nIt gets darker, colder like in a basement, a little humid\nThe more you go the rustier the stairs become.\n",60);
                     Sleep(700);
                     print_slow(cout,"\nThe air becomes heavier\nIt's hard for oxygen to come this far down\nYou are about 50 steps down and it still seems like a long way\n\nYour head starts hurting\n\n1)Keep going          2)Go back up\n\n",60);
-                    k=cinBloccato;
+                    k=cinBloccato();
                     if(k==1){//Scelta numero: 1.2.2.2.1.1
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-Stupid fucking stairs\n",40);
@@ -2988,7 +2988,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x75);
                         print_slow(cout,"2)Door on your right.\n\n",60);
                         SetConsoleTextAttribute(hc, 0x70);
-                        a=cinBloccatop;
+                        a=cinBloccato()p;
                         if(ap==1){//Scelta numero: 1.2.2.2.1.1.1
                             PlaySound(TEXT("./music/Rebirth.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                             SetConsoleTextAttribute(hc, 0x70);
