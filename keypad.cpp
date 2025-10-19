@@ -2,7 +2,7 @@
 #include <fstream>
 #include <string>
 #include <windows.h>
-#include <cstdio> // per remove()
+#include <cstdio> 
 
 void setupConsole() {
     HWND hwnd = GetConsoleWindow();
@@ -35,9 +35,8 @@ int main() {
     std::remove("codess.txt");
 
     std::string codess;
-    while (codess.length() < 4) {
+    while (codess.length() < 6) {
         system("cls");
-        std::cout << "Codice inserito: " << codess << "\n\n";
         std::cout << R"(
  [7] [8] [9]
  [4] [5] [6]
@@ -45,7 +44,7 @@ int main() {
      [0]
 )" << std::endl;
 
-        std::cout << "\nDigita un numero (0-9): ";
+        std::cout << "\nInsert a code:";
         char ch;
         std::cin >> ch;
 
