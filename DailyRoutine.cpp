@@ -30,28 +30,46 @@ using namespace std;
 using namespace std::chrono;
 namespace fs = std::filesystem;
 
+void LockConsoleWindowSize() {
+    HWND hwnd = GetConsoleWindow();
+    if (!hwnd) return;
+    // Rimuove il bordo ridimensionabile e il pulsante di massimizza
+    LONG_PTR style = GetWindowLongPtr(hwnd, GWL_STYLE);
+    style &= ~(WS_THICKFRAME | WS_MAXIMIZEBOX);
+    SetWindowLongPtr(hwnd, GWL_STYLE, style);
+    // Forza l'aggiornamento della finestra senza muoverla o ridimensionarla
+    SetWindowPos(hwnd, NULL, 0, 0, 0, 0,
+                 SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
+}
+
+void mostraAsciiArt(const std::string& nomeArt, int zoom = 100) {
+    std::ofstream file("ascii_command.txt");
+    file << nomeArt << ";" << zoom;
+    file.close();
+}
+
 int cinBloccato() {
-    std::string input;
-    char ch;
-    
     while (true) {
-        ch = _getch();
-        
-        if (ch == 13 || ch == 10) { // Enter
-            if (!input.empty()) {
-                std::cout << std::endl;
-                return std::stoi(input);
-            }
+        int ch = _getch();
+
+        // Ignora tasti speciali (es. frecce): _getch restituisce 0 o 224 e va chiamato di nuovo
+        if (ch == 0 || ch == 224) {
+            _getch(); // scarta il codice di estensione
+            continue;
         }
-        else if (ch == 8 && !input.empty()) { // Backspace
-            input.pop_back();
-            std::cout << "\b \b";
+
+        // Ignora Enter e Backspace
+        if (ch == 13 || ch == 10 || ch == 8) {
+            continue;
         }
-        else if (ch == '1' || ch == '2') { // SOLO 1 E 2
-            input += ch;
-            std::cout << ch;
+
+        // Accetta solo '1' o '2' e ritorna subito
+        if (ch == '1' || ch == '2') {
+            std::cout << static_cast<char>(ch) << std::endl;
+            return ch - '0'; // converte '1'/'2' in 1/2
         }
-        // Tutto il resto: IGNORATO
+
+        // Tutto il resto: ignorato
     }
 }
 
@@ -88,8 +106,41 @@ void stampaRigaPerRiga(const std::string& asciiArt, int ritardoMillisecondi) {
     }
 }
 
-void KeepWindowOnTop(HWND hwnd) {
-    SetWindowPos(hwnd, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE);
+// Snap window to the right half of the screen
+bool SnapWindowRight(HWND hwnd) {
+    if (!hwnd || !IsWindow(hwnd)) {
+        return false;
+    }
+
+    // Get the monitor that contains the window
+    HMONITOR hMonitor = MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST);
+    MONITORINFO monitorInfo = { sizeof(MONITORINFO) };
+    
+    if (!GetMonitorInfo(hMonitor, &monitorInfo)) {
+        return false;
+    }
+
+    // Calculate right half position
+    RECT workArea = monitorInfo.rcWork;
+    int width = (workArea.right - workArea.left) / 2;
+    int height = workArea.bottom - workArea.top;
+    int leftPos = workArea.left + width;
+    
+    // Restore window if maximized
+    if (IsZoomed(hwnd)) {
+        ShowWindow(hwnd, SW_RESTORE);
+    }
+    
+    // Move and resize window to right half
+    return SetWindowPos(
+        hwnd,
+        HWND_TOP,
+        leftPos,
+        workArea.top,
+        width,
+        height,
+        SWP_SHOWWINDOW
+    );
 }
 
 void SetFontSize(int fontSizeY) {
@@ -242,11 +293,11 @@ string leggiCodess() {
 }
 
 int main() {
-
+    
     SetConsoleTitle("DailyRoutine.exe");
-
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
+    HWND hwnd = GetForegroundWindow();
 
     CONSOLE_FONT_INFOEX fontInfo = { 0 };
         fontInfo.cbSize = sizeof(CONSOLE_FONT_INFOEX); 
@@ -271,6 +322,8 @@ int main() {
    HANDLE hc = GetStdHandle(STD_OUTPUT_HANDLE);
 
     cambiaColoreSfondo(0,15);
+    SnapWindowRight(hwnd);
+    LockConsoleWindowSize();
     std::string asciiArt =R"(
 ______      _ _         ______            _   _            
 |  _  \    (_) |        | ___ \          | | (_)           
@@ -286,8 +339,6 @@ ______      _ _         ______            _   _
     string nome;
     bool kms,alice = false;
     std::string codess;
-    HWND hwnd = GetConsoleWindow(); 
-    KeepWindowOnTop(hwnd);
     Sleep(150);
     PlaySound(TEXT("./music/intro.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
     print_slow(cout,"\nInsert Your Name: ",50);
@@ -304,13 +355,14 @@ ______      _ _         ______            _   _
     print_slow(cout," )",60);
     Sleep(100);
     SetConsoleTextAttribute(hc, 0x0C);
-    print_slow(cout,"\n\n[Interact With The Program Only When Asked To]\n[You Can Pause By selecting Any Part of The Terminal]\n[You Can Unpause By Right Clicking]\n",60);
+    print_slow(cout,"\n\n[Interact With The Program Only When Asked To]\n[You Cannot Pause The Game So Keep Up]\n",60);
     Sleep(500);
     SetConsoleTextAttribute(hc, 0x02);
     print_slow(cout,"\nAnd remember, eyes on me.",30);
     SetConsoleTextAttribute(hc, 0x0F);
     Sleep(1500);
     system("cls");
+    system("start Bg.exe");
     for (int i = 0; i <= total; ++i) {
         displayProgressBar(i, total);
         std::this_thread::sleep_for(std::chrono::milliseconds(20));
@@ -329,15 +381,21 @@ ______      _ _         ______            _   _
     }
     case 1:{
     label2: 
+    system("remove ascii_command.txt");
     PlaySound(NULL, NULL, 0);
-    PlaySound(TEXT("./music/piedi.wav"), NULL, SND_FILENAME | SND_ASYNC);
     system("cls");
     cambiaColoreSfondo(7,0);
-    stampaRigaPerRiga(asciiArt, 350);
-    print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\nEverything around you is in it's right place\nThe memories of a dream that was better than reality fade away in your mind\nBut it's time to live now\nWhat do you do?\n\n1)Hop off bed.           2)Stay in.\n\n",50);
+    PlaySound(TEXT("./music/piedi.wav"), NULL, SND_FILENAME | SND_ASYNC);
+    stampaRigaPerRiga(asciiArt, 400);
+    PlaySound(TEXT("./music/sorrow.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+    print_slow(cout,"\nYou open your eyes again, It's morning, You are in your room like every day\n",60);
+    mostraAsciiArt("urroom",100);
+    print_slow(cout,"Everything around you is in it's right place\nThe memories of a dream that was better than reality fade away in your mind\nBut it's time to live now\nWhat do you do?\n\n1)Hop off bed.           2)Stay in.\n\n",50);
     ac = cinBloccato();
-    if(ac==1){
-    print_slow(cout,"\nYou wake up and follow your usual routine,\nCoffee, Quick shower with shave,\nYou dress up in a way that makes you appreciate yourself,\nAnd just like that you are ready to crush the day\nYou exit your boring apartment and surf the streets\nWhat's the next move\n\n1)Go to work           2)Get around\n\n",55);
+    if(ac==1){//Scelta numero: 1
+    print_slow(cout,"\nYou wake up and follow your usual routine,\nCoffee, Quick shower with shave,\nYou dress up in a way that makes you appreciate yourself,\nAnd just like that you are ready to crush the day\nYou exit your boring apartment and surf the streets",60);
+    mostraAsciiArt("house",20);
+    print_slow(cout,"\nWhat's the next move\n\n1)Go to work           2)Get around\n\n",55);
     xxx = cinBloccato();
     if(xxx==1){//Scelta numero: 1.1
         print_slow(cout,"\nYou know what you gotta do,\nIf you don't go to work it's gonna be a problem for future you\nAnd you don't want that\nSo you take your car and go to work like every day\nOnce there, you greet your coworkers and go to your set-up\nThese gray walls make you feel a little dead inside\nYou don't even start working that you notice two SMS\nOne it's from a girl, She's really into you and you are too, She's asking if you want to go to dinner,\nThe other one is from your boss,\nHe wants to meet you ASAP,\nHe's not saying why tho so this does not make you hope for good\nBut you know you can only take one message\n\nWho will it be?\n\n1)Cute-girl.          2)Boss.\n\n",55);
@@ -1850,6 +1908,7 @@ ______      _ _         ______            _   _
                                 }
                                 if(codess == "994301"){
                                     print_slow(cout,"\nAnd the door magically opens in front of you",60);
+                                    Sleep(4000);
                                 }
                                 else{
 
@@ -3249,10 +3308,11 @@ ______      _ _         ______            _   _
                         print_slow(cout,"2)Push through\n\n",60);
                         ap=cinBloccato();
                         if(ap==1){
-
+                            print_slow(cout,"You looking for some nice cool place to explore",60);
+                            //dafinire
                         }
                         else if(ap==2){
-
+                            //dafinire
                         }
                     }
                     else if(ai==2){//Scelta numero: 1.2.2.2.2.2
