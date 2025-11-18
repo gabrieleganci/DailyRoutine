@@ -5,12 +5,12 @@
 #include <string>
 #include <filesystem>
 #include <vector>
+#include <sstream>
 using namespace std;
 namespace fs = std::filesystem;
 
 bool EnableVTMode()
 {
-    // Set output mode to handle virtual terminal sequences
     HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
     if (hOut == INVALID_HANDLE_VALUE)
     {
@@ -31,27 +31,19 @@ bool EnableVTMode()
     return true;
 }
 
-// --- Metodo scroll alternativo ---
 void ScrollToTop() {
-    // Ottieni handle della console
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     if (hConsole == INVALID_HANDLE_VALUE) return;
 
-    // Assicurati che il VT mode sia attivo
     DWORD dwMode = 0;
     if (!GetConsoleMode(hConsole, &dwMode)) return;
     dwMode |= ENABLE_VIRTUAL_TERMINAL_PROCESSING;
     SetConsoleMode(hConsole, dwMode);
 
-    // Escape sequence: ESC [ H → sposta cursore in alto a sinistra
     std::cout << "\x1b[H";
-
-    // Optional: ESC [ 2 J → pulisce lo schermo, ma se vuoi solo scroll up togli questa
-    // std::cout << "\x1b[2J";
-
-    std::cout.flush(); // forza l’output immediato
+    std::cout.flush();
 }
-// --- Kill mother when Eyes closes ---
+
 BOOL WINAPI ConsoleHandler(DWORD signal) {
     if (signal == CTRL_CLOSE_EVENT || signal == CTRL_C_EVENT) {
         HWND hwndMotherToKill = FindWindowA(NULL, "DailyRoutine.exe");
@@ -70,7 +62,6 @@ BOOL WINAPI ConsoleHandler(DWORD signal) {
     return TRUE;
 }
 
-// --- Lock window resizing (call after snap) ---
 void LockConsoleWindowSize() {
     HWND hwnd = GetConsoleWindow();
     if (!hwnd) return;
@@ -81,7 +72,6 @@ void LockConsoleWindowSize() {
     SetWindowPos(hwnd, NULL, 0, 0, 0, 0, SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
 }
 
-// --- Snap left with Win+Left and refocus DailyRoutine ---
 class WindowSnapper {
 public:
     static void SnapCurrentWindowLeftAndRefocusMother() {
@@ -96,7 +86,6 @@ public:
         SetForegroundWindow(hwndEyes);
         SetFocus(hwndEyes);
         
-        // Win + Left
         keybd_event(VK_LWIN, 0, 0, 0);
         Sleep(40);
         keybd_event(VK_LEFT, 0, 0, 0);
@@ -106,7 +95,6 @@ public:
         keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0);
         Sleep(200);
         
-        // Refocus mother
         if (hwndMother && IsWindow(hwndMother)) {
             SetForegroundWindow(hwndMother);
             SetFocus(hwndMother);
@@ -114,7 +102,20 @@ public:
     }
 };
 
-// --- Viewer: load file and apply zoom/scroll on Eyes ---
+// --- Funzione per cambiare i colori ---
+void cambiaColoreSfondo(int coloreSfondo, int coloreTesto) {
+    HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+    int attributoColore = (coloreSfondo << 4) | coloreTesto;
+    SetConsoleTextAttribute(console, attributoColore);
+    CONSOLE_SCREEN_BUFFER_INFO csbi;
+    GetConsoleScreenBufferInfo(console, &csbi);
+    DWORD scritto;
+    DWORD dimensioneConsole = csbi.dwSize.X * csbi.dwSize.Y;
+    COORD homeCoords = {0, 0};
+    FillConsoleOutputAttribute(console, attributoColore, dimensioneConsole, homeCoords, &scritto);
+    FillConsoleOutputCharacter(console, ' ', dimensioneConsole, homeCoords, &scritto);
+}
+
 class AsciiViewer {
 private:
     std::string ultimoComando;
@@ -126,12 +127,10 @@ private:
 
         HWND originalFocusWindow = GetForegroundWindow();
 
-        // Focus sulla finestra
         SetForegroundWindow(hwndEyes);
         SetFocus(hwndEyes);
         Sleep(200);
 
-        // Reset zoom (Ctrl+0)
         keybd_event(VK_CONTROL, 0, 0, 0);
         Sleep(50);
         keybd_event('0', 0, 0, 0);
@@ -141,7 +140,6 @@ private:
         keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);
         Sleep(200);
 
-        // Zoom steps
         int diff = percentuale - 100;
         int numSteps = diff / 10;
         if (numSteps != 0) {
@@ -159,54 +157,58 @@ private:
             keybd_event(VK_CONTROL, 0, KEYEVENTF_KEYUP, 0);
         }
 
-        // Restore focus
         if (originalFocusWindow && IsWindow(originalFocusWindow)) {
             SetForegroundWindow(originalFocusWindow);
             SetFocus(originalFocusWindow);
         }
     }
 
-    void caricaEMostra(const std::string& nomeFile, int zoom = 100) {
+    void caricaEMostra(const std::string& nomeFile, int zoom = 100, int coloreBg = -1, int coloreFg = -1) {
+        // Pulisci schermo
+        system("cls");
 
-    // Pulisci schermo
-    system("cls");
+        // Cambia zoom PRIMA di stampare
+        if (zoom != 100) {
+            impostaZoom(zoom);
+        }
 
-    // Cambia zoom PRIMA di stampare
-    if (zoom != 100) {
-        impostaZoom(zoom);
-    }
+        // Cambia colori SE specificati
+        if (coloreBg >= 0 && coloreFg >= 0) {
+            cambiaColoreSfondo(coloreBg, coloreFg);
+        }
 
-    // Leggi file
-    std::ifstream file("bgs/" + nomeFile + ".txt");
-    if (!file) return;
+        // Leggi file
+        std::ifstream file("bgs/" + nomeFile + ".txt");
+        if (!file) return;
 
-    std::vector<std::string> righe;
-    std::string linea;
-    while (std::getline(file, linea)) {
-        righe.push_back(linea);
-    }
+        std::vector<std::string> righe;
+        std::string linea;
+        while (std::getline(file, linea)) {
+            righe.push_back(linea);
+        }
 
-    // Riposiziona cursore in alto
-    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-    if (hConsole != INVALID_HANDLE_VALUE) {
-        COORD topLeft = {0,0};
-        SetConsoleCursorPosition(hConsole, topLeft);
-    }
 
-    // Stampa tutto dall’inizio
-    for (const auto& r : righe) {
-        std::cout << r << "\n";
-    }
+        // Riposiziona cursore in alto
+        HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+        if (hConsole != INVALID_HANDLE_VALUE) {
+            COORD topLeft = {0,0};
+            SetConsoleCursorPosition(hConsole, topLeft);
+        }
 
-    // Nascondi cursore
-    if (hConsole != INVALID_HANDLE_VALUE) {
-        CONSOLE_CURSOR_INFO cursorInfo;
-        if (GetConsoleCursorInfo(hConsole, &cursorInfo)) {
-            cursorInfo.bVisible = FALSE;
-            SetConsoleCursorInfo(hConsole, &cursorInfo);
+        // Stampa tutto dall'inizio
+        for (const auto& r : righe) {
+            std::cout << r << "\n";
+        }
+
+        // Nascondi cursore
+        if (hConsole != INVALID_HANDLE_VALUE) {
+            CONSOLE_CURSOR_INFO cursorInfo;
+            if (GetConsoleCursorInfo(hConsole, &cursorInfo)) {
+                cursorInfo.bVisible = FALSE;
+                SetConsoleCursorInfo(hConsole, &cursorInfo);
+            }
         }
     }
-}
 
 public:
     void avvia() {
@@ -232,19 +234,46 @@ public:
                 file.close();
 
                 if (!comando.empty() && comando != ultimoComando) {
+                    // Parsing: nomeFile;zoom;coloreBg;coloreFg
                     std::string nomeFile = comando;
                     int zoom = 100;
-                    size_t pos = comando.find(';');
-                    if (pos != std::string::npos) {
-                        nomeFile = comando.substr(0, pos);
+                    int coloreBg = -1;
+                    int coloreFg = -1;
+
+                    std::stringstream ss(comando);
+                    std::string token;
+                    std::vector<std::string> tokens;
+                    
+                    while (std::getline(ss, token, ';')) {
+                        tokens.push_back(token);
+                    }
+
+                    if (tokens.size() >= 1) {
+                        nomeFile = tokens[0];
+                    }
+                    if (tokens.size() >= 2) {
                         try {
-                            zoom = std::stoi(comando.substr(pos + 1));
+                            zoom = std::stoi(tokens[1]);
                         } catch (...) {
                             zoom = 100;
                         }
                     }
+                    if (tokens.size() >= 3) {
+                        try {
+                            coloreBg = std::stoi(tokens[2]);
+                        } catch (...) {
+                            coloreBg = -1;
+                        }
+                    }
+                    if (tokens.size() >= 4) {
+                        try {
+                            coloreFg = std::stoi(tokens[3]);
+                        } catch (...) {
+                            coloreFg = -1;
+                        }
+                    }
 
-                    caricaEMostra(nomeFile, zoom);
+                    caricaEMostra(nomeFile, zoom, coloreBg, coloreFg);
                     ultimoComando = comando;
 
                     std::ofstream clear(cmdPath.string(), std::ios::trunc);
@@ -257,8 +286,7 @@ public:
 };
 
 int main() {
-
-bool fSuccess = EnableVTMode();
+    bool fSuccess = EnableVTMode();
     SetConsoleCtrlHandler(ConsoleHandler, TRUE);
     SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
     SetConsoleOutputCP(CP_UTF8);
