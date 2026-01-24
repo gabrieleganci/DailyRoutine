@@ -1,4 +1,3 @@
-// Eyes (Bg.cpp) - MSVC on Windows 
 #include <windows.h>
 #include <iostream>
 #include <fstream>

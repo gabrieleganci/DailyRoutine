@@ -405,8 +405,8 @@ ______      _ _         ______            _   _
     label2:
     system("cls"); 
     system("remove ascii_command.txt");
+    system("remove codess.txt");
     PlaySound(NULL, NULL, 0);
-    system("cls");
     cambiaColoreSfondo(7,0);
     PlaySound(TEXT("./music/piedi.wav"), NULL, SND_FILENAME | SND_ASYNC);
     stampaRigaPerRiga(asciiArt, 400);
@@ -647,7 +647,7 @@ ______      _ _         ______            _   _
                             std::this_thread::sleep_for(std::chrono::milliseconds(50));}
                             goto label2;
                         }
-                        else if(am==2){//Scelta numero: 1.1.1.1.1.1.2
+                        else(am==2);{//Scelta numero: 1.1.1.1.1.1.2
                             print_slow(cout,"\nYou sprint for the smoking front door, roll behind the fight and reach for the exit\nBut the run is cut short when a bullet hit your leg with a precise shot, Almost un-natural\nBut the second of distraction of the woman allowed Ashley to slide her neck with a knife\n",55);
                             SetConsoleTextAttribute(hc, 0x78);
                             cout<<"\n-That's f'd up\n";
@@ -668,7 +668,7 @@ ______      _ _         ______            _   _
                             goto label2;
                         }
                     }
-                    else if(ag==2){//Scelta numero: 1.1.1.1.1.2
+                    else(ag==2);{//Scelta numero: 1.1.1.1.1.2
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-I would love to bae but i have to go play videogames",50);
                         Sleep(2000);
@@ -691,7 +691,7 @@ ______      _ _         ______            _   _
                         goto label2;
                     }
                 }
-                else if(ae==2){//Scelta numero: 1.1.1.1.2
+                else(ae==2);{//Scelta numero: 1.1.1.1.2
                     print_slow(cout,"\nYou go down a fast train of thoughts about how bad it could go and arguably decide to leave,\nYou sneakly crawl to the opposite side of the street and go a few meters down\n",60);
                     Sleep(500);
                     print_slow(cout,"\nIt's a good moment to take your phone and text her\n",60);
@@ -712,14 +712,14 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\n1)Grab a drink           2)'Make some noise'\n",60);
                     qq=cinBloccato();
                     if(qq==1){//Scelta numero: 1.1.1.1.2.1
-                        //prendi il drink e quello accanto sono io e ti do la cartella iceberg lui parla di lenny
+                        //prendi il drink e quello accanto ci sta il padre i alice ti da la cartella in cui stanno dei file corpo in cui si palra di lore e lenny 
                     }
-                    else if(qq==2){//Scelta numero: 1.1.1.1.2.2
+                    else(qq==2);{//Scelta numero: 1.1.1.1.2.2
                         //a bbudffo tiri fuiri le armi e pari alla gente fra cui ash, lenny ti ferma e torni al loop
                     }
                 }
             }
-            else if(c==2){//Scelta numero: 1.1.1.2
+            else(c==2);{//Scelta numero: 1.1.1.2
                 print_slow(cout,"\nFor how much into her you can be\nYou don't really feel like going out with her\nSo you rethink asking your bro for a beer\n",60);
                 mostraAsciiArt("setup",50);
                 Sleep(750);
@@ -867,11 +867,13 @@ ______      _ _         ______            _   _
                             //ROOT DEL SEX ROOT DEL SEX ROOT DEL SEX DAI DAI DAI DAI DAI
                             //dafinire
                         }
-                        else if(gg==2){//Scelta numero: 1.1.1.2.1.1.1.2
+                        else(gg==2);{//Scelta numero: 1.1.1.2.1.1.1.2
                             print_slow(cout,"\nYou grab the joint and give it a firm flick on the top to turn it off\n",60);
                             PlaySound(TEXT("./music/AIT.wav"), NULL, SND_FILENAME | SND_ASYNC);
                             Sleep(750);
-                            print_slow(cout,"\nBut you happen to hit her clothes with some hash\nBurning hash, her clothes are already ripped so you don't really mind and start walking in the opposite direction back into the office\n",60);
+                            print_slow(cout,"\nBut you happen to hit her clothes with some hash\nBurning hash,\n",60);
+                            Sleep(220);
+                            print_slow(cout,"\nHer clothes are already ripped so you don't really mind and start walking in the opposite direction back into the office\n",60);
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x75);
                             print_slow(cout,"\n-HEY DUDE, what is wrong with you today?\n",40);
@@ -949,7 +951,7 @@ ______      _ _         ______            _   _
                                     break;
                                 }
                             }
-                            if (codess == "32718") {//Scelta numero: 1.1.1.2.1.1.1.2.1
+                            if (codess == "32718") {//Scelta numero: 1.1.1.2.1.1.1.2
                                 remove("codess.txt");
                                 print_slow(cout,"\nYou confidently put the five numbers in the keypad\nThe locker gently opens.\n",60);
                                 Sleep(750);
@@ -968,20 +970,70 @@ ______      _ _         ______            _   _
                                 system("start https://drive.google.com/drive/folders/1g3tsQQ5aE4K8K81Qf1j7lzPR6vL4VksS?usp=sharing");
                                 //dafinire
                             } 
-                            else {//Scelta numero: 1.1.1.2.1.1.1.2.2
+                            else{//Scelta numero: 1.1.1.2.1.1.1.2.N
                                 remove("codess.txt");
-                                print_slow(cout,"\nYour fingers shakes",60);
+                                SetConsoleTextAttribute(hc, 0x70);
+                                print_slow(cout,"\nAnd that's wrong\nYour fingers shake for a moment\nYou look at alice",60);
+                                if(alice == true){
+                                    print_slow(cout,"\nYou remember this girl\nYou remember seeing her in room?\nShe killed you\nThat was probably a dream tho\n",60);
+                                    Sleep(500);
+                                    print_slow(cout,"\nIt wouldn't hurt to ask\n",60);
+                                    SetConsoleTextAttribute(hc, 0x78);
+                                    print_slow(cout,"\n-Hey ..ahem Alice, if i may ask\n-What were you doing that made you so anxous back in that room?\n",60);
+                                    Sleep(500);
+                                    SetConsoleTextAttribute(hc, 0x70);
+                                    print_slow(cout,"\nShe puts her hand in front of her mouth in a goofy attempt to hide her laugh\n",60);
+                                    Sleep(250);
+                                    print_slow(cout,"\nThen proceeds\n",60);
+                                    SetConsoleTextAttribute(hc, 0x75);
+                                    print_slow(cout,"\n-You don't remember the code but you definitely remember that huh\n",60);
+                                    Sleep(200);
+                                    SetConsoleTextAttribute(hc, 0x78);
+                                    print_slow(cout,"-\nYeah..",60);
+                                    Sleep(100);
+                                    print_slow(cout,"\n-I think so at least.\n",60);
+                                    Sleep(750);
+                                    SetConsoleTextAttribute(hc, 0x70);
+                                    print_slow(cout,"\n-Alice comes close to your chest looking at you\n",60);
+                                    Sleep(130);
+                                    SetConsoleTextAttribute(hc, 0x75);
+                                    print_slow(cout,"\n-I was fucking with things\n",52);
+                                    Sleep(50); 
+                                    SetConsoleTextAttribute(hc, 0x70);
+                                    print_slow(cout,"\nNow you're the one holding his laugh\n",60);
+                                    Sleep(50);
+                                    SetConsoleTextAttribute(hc, 0x78);
+                                    print_slow(cout,"\n-Wait in what sense?\n",50);
+                                    Sleep(55);
+                                    SetConsoleTextAttribute(hc, 0x75);
+                                    print_slow(cout,"\n-In the sense you ",60)
+                                    print_slow(cout,"SHOULD MIND YOUR FUCKING BUISNESS\n",40);
+                                    Sleep(750);
+                                    SetConsoleTextAttribute(hc, 0x70);
+                                    print_slow(cout,"\nAlice leaves the room without adding anything else\nThis leaves you a little upset\n",60);
+                                    Sleep(300);
+                                    print_slow(cout,"\nThis girl always acts like she has something going on\nComing up with bits like she's in a sitcom\nNever really going anywhere\n",60);
+                                    Sleep(1000);
+                                    SetConsoleTextAttribute(hc, 0x78);
+                                    print_slow(cout,"\n-Whatever.",50);
+                                    Sleep(750);
+                                    print_slow(cout,"\n-What a weird girl",50);
+                                }
+                                Sleep(400);
+                                SetConsoleTextAttribute(hc, 0x78);
+                                print_slow(cout,"\n-See no luck with your code",50);
+                                Sleep(1000);            
                                 //dafinire
                                 //si va all'armadietto e se si azzecca la password si apre la cartella se no si finisce che ci si mena con alice  e ci sta la fight cub referencee parte la spirale
                             }
                         }
                     }
-                    else if(jj==2){//Scelta numero: 1.1.1.2.1.1.2
+                    else(jj==2);{//Scelta numero: 1.1.1.2.1.1.2
                         //linea temporale in cui si muore frate falla senza senso ti prego
-
+                        //dafinire
                     }
                 }
-                else if(af==2){//Scelta numero: 1.1.1.2.1.2
+                else(af==2);{//Scelta numero: 1.1.1.2.1.2
                     Sleep(500);
                     PlaySound(TEXT("./music/UVCLP.wav"), NULL, SND_FILENAME | SND_ASYNC );
                     print_slow(cout,"\nYou look at her and get infected by her sadness,\nAll your hopes fade away\nIt's a slow process,\nYou feel it coming slowly like a trip",60);
@@ -1041,7 +1093,7 @@ ______      _ _         ______            _   _
                     goto label2;
                     }
                 }
-                else if(n==2){//Scelta numero: 1.1.1.2.2
+                else(n==2);{//Scelta numero: 1.1.1.2.2
                     print_slow(cout,"\nYou look at her in the eyes for a second that seem to last way more, you say:\n",60);
                     SetConsoleTextAttribute(hc, 0x78);
                     print_slow(cout,"\n-Don't worry you don't have to say anything, i thought about doing it in here too\n",50);
@@ -1176,7 +1228,7 @@ ______      _ _         ______            _   _
                             Sleep(200);
                             goto label2;
                         }
-                        else if(r==2){//Scelta numero: 1.1.1.2.2.1.2
+                        else(r==2);{//Scelta numero: 1.1.1.2.2.1.2
                             print_slow(cout,"\nYou look down and back off\nYou don't wanna die already\nTake the elevator for the ground floor\nWhile the floor passes you look at your reflection in the mirror\nYou don't look that good, your hair are messy\nYou look tired, you have rings under your eyes\nOnce at the ground floor you think it's a good idea to walk home instead of driving\nReception is empty, shame, Pam would have been the only one capable to bring your emotions back up\nYou walk home alone in the coldness of the night\nYou feel a little empty after today,\nWhat if that girl really killed herself?\nI mean you could have been friends\nYou could have taught her what you learned\nAll the things that you know about emotions, that instead just live into your four walls\nYou could have made it trough\nTogather maybe\n",60);
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x78);
@@ -1277,7 +1329,7 @@ ______      _ _         ______            _   _
                             goto label2;
                         }
                     }
-                    else if(o==2){//Scelta numero: 1.1.1.2.2.2
+                    else(o==2);{//Scelta numero: 1.1.1.2.2.2
                         print_slow(cout,"\nWhile you drive back you still can't stop thinking about her\nThat was so surreal but ironic at the same time\nYou eat dinner at home while watching Youtube, usual depression meal\nYou rest to play some games, but you still can't shake the thought of her\nYou take a look again at the badge she gave you",60);
                         Sleep(2000);
                         print_slow(cout,"\nPretty even in the picture\nShould you call her?\n\n1)Call           2)Don't\n\n",60);
@@ -1360,7 +1412,7 @@ ______      _ _         ______            _   _
                                 //alice si stupisce e poi si apre un po'
                                 //dafinire
                             }
-                            else if(al==2){//Scelta numero: 1.1.1.2.2.2.1.2
+                            else(al==2);{//Scelta numero: 1.1.1.2.2.2.1.2
                                 print_slow(cout,"\nYou try to elaborate something, pretending you know how to talk to a woman\nBut you ended up in the comfort zone as always, you said something like:\n",60);
                                 SetConsoleTextAttribute(hc, 0x78);
                                 print_slow(cout,"\n-Wanna hop on something, do you have discord, any chance??\n",80);
@@ -1410,7 +1462,7 @@ ______      _ _         ______            _   _
                                 goto label2;
                             }
                         }
-                        else if(p==2){//Scelta numero: 1.1.1.2.2.2.2
+                        else(p==2);{//Scelta numero: 1.1.1.2.2.2.2
                             PlaySound(TEXT("./music/RR.wav"), NULL, SND_FILENAME | SND_ASYNC );
                             Sleep(750);
                             SetConsoleTextAttribute(hc, 0x78);
@@ -1425,7 +1477,7 @@ ______      _ _         ______            _   _
                 }
             }
         }
-        else if(b==2){//Scelta numero: 1.1.2
+        else(b==2);{//Scelta numero: 1.1.2
             print_slow(cout,"\nFor how much you could like her, You know it's unwise to not answer your boss\nSo you text back and say\n",60);
             SetConsoleTextAttribute(hc, 0x78);
             print_slow(cout,"\n-aigth im coming\n",45);
@@ -1579,7 +1631,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nOn the right door there are apparent white scratches since your car is black,\nSome of theme are just random lines,\nOther ones looks like a bad drawing of eyes\nYou also notice a little piece of paper all folded up sitting on the sidewalk right beside the driver seat\n\n1)Investigate scratches                2)Pick up note\n\n",60);
                         ah=cinBloccato();
-                        if(ah==1){//Scelta numero: 1.1.2.1.1.1.2
+                        if(ah==1){//Scelta numero: 1.1.2.1.1.1.1
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"\n-This is unacceptable, i paid way too much\n",30);
                             SetConsoleTextAttribute(hc, 0x70);
@@ -1614,7 +1666,7 @@ ______      _ _         ______            _   _
 
                             }
                         }
-                        else(ah==2);{//Scelta numero: 1.1.2.1.1.1.1
+                        else(ah==2);{//Scelta numero: 1.1.2.1.1.1.2
                             PlaySound(TEXT("./music/AYN.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                             print_slow(cout,"\nYou knee and pick up the note\n",60);
                             system("start https://drive.google.com/file/d/1D141GhkYAfl57cyhiuDskDCovsvk6KnV/view?usp=drive_link");
@@ -1674,7 +1726,7 @@ ______      _ _         ______            _   _
                             if(ax == 1){//Scelta numero: 1.1.2.1.1.2.1.1
                                 //dafinire
                             }
-                            else if(ax == 2){//Scelta numero: 1.1.2.1.1.2.1.2
+                            else(ax == 2);{//Scelta numero: 1.1.2.1.1.2.1.2
                                 print_slow(cout,"\nYou just keep staring at them,\nYou start cring silently\nThey pretend to not notice\nYou feel like you never received a human treatment in this office\nYou never made friends here\nJust small talks to bring a little more humanity to a place that looks like full of thinkless robots\nFor the first time in a lot you feel vulnerable,\nAbandoned to yourself in a bathroom stall\nWondering if you're surrounded by assholes\nOr if you're the one\n",60);
                                 Sleep(2000);
                                 print_slow(cout,"\n...\nYou miss your mum",60);
@@ -1684,18 +1736,18 @@ ______      _ _         ______            _   _
                             //in caso no il pc scoppia e riavvia
                             //dafinire
                         }
-                        else if(ak==2){//Scelta numero: 1.1.2.1.1.2.2
+                        else(ak==2);{//Scelta numero: 1.1.2.1.1.2.2
                             //dafinire
                         }
                     }
                 }
-                else if(l==2){//Scelta numero: 1.1.2.1.2
+                else(l==2);{//Scelta numero: 1.1.2.1.2
                     print_slow(cout,"\nThe phone keeps ringing and ringing\nYou let it until it's done\nAs soon as it stops you feel a really strong headache\nYour view gets dark for a second like you just got iron deficiency\nThen in the distance you hear another phone\nThen another\nAnd another\nIt gets to a point where you think that all the phones in the office are ringing\nYou feel like your ears are bleeding\n\n1)Pick up             2)Break them\n\n",55);
                     ab=cinBloccato();
                     if(ab==1){//Scelta numero: 1.1.2.1.2.1
                         goto label4;
                     }
-                    else if(ab==2){//Scelta numero: 1.1.2.1.2.2
+                    else(ab==2);{//Scelta numero: 1.1.2.1.2.2
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nYou feel like going insane, you grab your phone and throw it on the wall,\nThat does not stop all the other ones form ringing\nYou're sick of it, You leave the place\nYou use the stair to be quicker\nBut once at the fifth floor something catches your attention for a second\nIt's a perfect copy of the 'Venus de Milo'\n\n",55);
                         system("start https://drive.google.com/file/d/1lZ-Kqg9t_R5fMbOd0MtaeMTmjLquZ_cM/view?usp=drive_link");
@@ -1712,7 +1764,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\nYou don't wanna get into more trouble\n",60);
                             //dafinire
                         }
-                        else if(aq==2){//Scelta numero: 1.1.2.1.2.2.2
+                        else(aq==2);{//Scelta numero: 1.1.2.1.2.2.2
                             print_slow(cout,"\nYou get one last good look out of it\nA shame the france have the original one\nThey first take art from the italians\nAnd then place it in a burning crumbling museum\nAnyway you go up to it's back and give it a push with your hands\n",60);
                             Sleep(1000);
                             print_slow(cout,"\nAnd yep it's not heavy\nIt falls slowly down the stairs but does not break\nYou still hear that weird boiling liquid sound as it rolls\n",60);
@@ -1725,17 +1777,15 @@ ______      _ _         ______            _   _
                             Sleep(5000);
                             cambiaColoreSfondo(7,0);
                             SetConsoleTextAttribute(hc, 0x78);
-                            std::cout << "\033[1;1H";
                             print_slow(cout,"\n-What the fuck was that?\n",40);
                             SetConsoleTextAttribute(hc, 0x70);
-                            print_slow(cout,"\nThe statue just evaporated in front of you eyes\nIn doing so it emitted a bright light your eyes couldn't stand\nWhat was left behind other then smoke in the room,\nWas the liquid you heard from inside the ",60);
-                            std::cout << "\033[3mReplica\033[0m";
+                            print_slow(cout,"\nThe statue just evaporated in front of you eyes\nIn doing so it emitted a bright light your eyes couldn't stand\nWhat was left behind other then smoke in the room,\nWas the liquid you heard from inside the Replica",60);
                             //dafninire
                         }
                     }
                 }
             }
-            else if(g==2){//Scelta numero: 1.1.2.2
+            else(g==2);{//Scelta numero: 1.1.2.2
                 PlaySound(TEXT("./music/BT.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                 print_slow(cout,"\nThe frustration of the whole month flows through you blood and makes it boil\nYour boss is there in front of you looking directly in your eyes\nAlmost smiling\nYou look back at him and laugh\n",60);
                 Sleep(750);
@@ -1993,11 +2043,11 @@ ______      _ _         ______            _   _
                                     //dafinire
                                 }
                             }
-                            else if(z==2){//Scelta numero: 1.1.2.2.2.1.1.2
+                            else(z==2);{//Scelta numero: 1.1.2.2.2.1.1.2
                                 //dafinire
                             }
                         }
-                        else if(v==2){//Scelta numero: 1.1.2.2.2.1.2
+                        else(v==2);{//Scelta numero: 1.1.2.2.2.1.2
                             print_slow(cout,"\nYou look at the picture for a few more seconds\nYup that's you\n",60);
                             SetConsoleTextAttribute(hc, 0x78);
                             Sleep(1200);
@@ -2593,7 +2643,7 @@ ______      _ _         ______            _   _
             }
         }
     }
-    else if(xxx==2){//Scelta numero: 1.2
+    else(xxx==2);{//Scelta numero: 1.2
         print_slow(cout,"\nYou're tired to go every day in the same place,\nYou need something different today\nYour city is big and you want to have some fun\n",60);
         mostraAsciiArt("drive",30);
         Sleep(400);
@@ -2612,7 +2662,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\n\nYou don' wanna be too invasive,\nMaybe he's asleep or not in the house\nAnd also, you don't wanna go from an house to another\n",60);
                 goto label3;
             }
-            else if(e==2){//Scelta numero: 1.2.1.2
+            else(e==2);{//Scelta numero: 1.2.1.2
                 print_slow(cout,"\nYou silently approach the window\nJust to see the corpse of josh laying on the sofa face down\n",60);
                 SetConsoleTextAttribute(hc, 0x78);
                 print_slow(cout,"`That douchbag must be sleeping` ",60);
@@ -2628,7 +2678,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\nYou think, and also\n",60);
                     goto label3;
                 }
-                else if(h==2){//Scelta numero: 1.2.1.2.2
+                else(h==2);{//Scelta numero: 1.2.1.2.2
                     print_slow(cout,"\nYou decide to make room for yourself\nIt won't be hard\nYou approach the nearest plant and find a key in the pot\n",60);
                     SetConsoleTextAttribute(hc, 0x78);
                     print_slow(cout,"'that idiot never change'",40);
@@ -2669,7 +2719,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\nYou think it's the right time to wake him up\n",60);
                             goto label5;
                         }
-                        else if(aw==2){//Scelta numero: 1.2.1.2.2.1.2
+                        else(aw==2);{//Scelta numero: 1.2.1.2.2.1.2
                             print_slow(cout,"\nYou look at Josh, poor guy going trough all that\nYou should cheer him a little up since you're here\nYou shout:\n",60);
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"\n-Knock knock brother\n",50);
@@ -2716,7 +2766,7 @@ ______      _ _         ______            _   _
                                 Sleep(2400);
                                 goto label1;
                             }
-                            else if(at==2){//Scelta numero: 1.2.1.2.2.1.2.2 IL FINALE IN CUI MC RIESCE AD APRIRE LA cantina
+                            else(at==2);{//Scelta numero: 1.2.1.2.2.1.2.2 IL FINALE IN CUI MC RIESCE AD APRIRE LA cantina
                                 Sleep(100);
                                 print_slow(cout,"\n\nYou look at the envelope on the right\nIt's white and clean with a weird knob\nYou carefully pull the glue away with your keys\nOnce opened you take the paper out and start reading\n",60);
                                 system("start https://drive.google.com/file/d/1mz-0L6530hZ1Yf8nisLeDxrAQOs7VVEa/view?usp=drive_link");
@@ -2732,10 +2782,10 @@ ______      _ _         ______            _   _
                                 //dafinire
 
                             }
-                        }
+                          }
                         }
                         
-                    else if(eh==2){//Scelta numero: 1.2.1.2.2.2 
+                    else(eh==2);{//Scelta numero: 1.2.1.2.2.2 
                         print_slow(cout,"\nYou stealthily take the note and start reading\n\n",60);
                         system("start https://drive.google.com/file/d/1aTSZNnLV8ATaMhYtNAZFofOvp5CdN3R_/view?usp=drive_link");
                         Sleep(22000);
@@ -2787,7 +2837,7 @@ ______      _ _         ______            _   _
                                 Sleep(2400);
                                 goto label1;
                             }
-                            else if(ao==2){//Scelta numero: 1.2.1.2.2.2.1.2
+                            else(ao==2);{//Scelta numero: 1.2.1.2.2.2.1.2
                                 Sleep(100);
                                 print_slow(cout,"\n\nYou look at the envelope on the right\nIt's white and clean with a weird knob\nYou carefully pull the glue away with your keys\nOnce opened you take the paper out and start reading\n",60);
                                 system("start https://drive.google.com/file/d/1mz-0L6530hZ1Yf8nisLeDxrAQOs7VVEa/view?usp=drive_link");
@@ -2826,8 +2876,9 @@ ______      _ _         ______            _   _
                                 bb=cinBloccato();
                                 if(bb==1){//Scelta numero: 1.2.1.2.2.X.X.X.1
                                     //finale felice in cui vai ad un festival con josh e si trova una piskella
+                                    //dafinire
                                 }
-                                else if(bb==2){//Scelta numero: 1.2.1.2.2.X.X.X.2
+                                else(bb==2);{//Scelta numero: 1.2.1.2.2.X.X.X.2
                                     print_slow(cout,"\nYou feel like a nice cruise would be good for the both of you\nYou're even willing to pay for it all\nIt's right to spend for your homies sometimes\n",60);
                                     Sleep(750);
                                     SetConsoleTextAttribute(hc, 0x78);
@@ -2863,7 +2914,7 @@ ______      _ _         ______            _   _
                                 }
                             }
                         }
-                        else if(j==2){//Scelta numero: 1.2.1.2.2.2.2
+                        else(j==2);{//Scelta numero: 1.2.1.2.2.2.2
                             SetConsoleTextAttribute(hc, 0x70);
                             print_slow(cout,"\nYou look at Josh for a second, completely passed out\nYou calmly move around the house, you basically know it as your pockets at this point\nYou get out of the big room and walk towards the rooms\nEverything is still and filthy as usual\nOn your way there tho you trip over some can's\nIn a goofy attempt to not fall you end up knocking over a picture of Josh and Beth\nIt falls on the ground shattering the glass cover and making a huge noise",60);
                             Sleep(1500);
@@ -2912,7 +2963,7 @@ ______      _ _         ______            _   _
                  }
             }
         }
-        else if(d==2){//Scelta numero: 1.2.2
+        else(d==2);{//Scelta numero: 1.2.2
             label3:
             SetConsoleTextAttribute(hc, 0x78);
             print_slow(cout,"\n-Sometimes life is about exploring\n",40);
@@ -2958,7 +3009,7 @@ ______      _ _         ______            _   _
                     //dafinire
                     //cambiare un po lo stile e i colori del terminale
                 }
-                else if(ar==2){//Scelta numero: 1.2.2.1.2
+                else(ar==2);{//Scelta numero: 1.2.2.1.2
                     print_slow(cout,"\nAs you puff the joint the traffic starts to flow again\nYou finally can give a purpose to your Mitsubishi Lancer.\n",60);
                     Sleep(750);
                     SetConsoleTextAttribute(hc, 0x78);
@@ -3111,13 +3162,13 @@ ______      _ _         ______            _   _
                         Sleep(200);
                         goto label2;
                     }
-                    else if(ba==2){//Scelta numero: 1.2.2.1.2.2
+                    else(ba==2);{//Scelta numero: 1.2.2.1.2.2
                         //finale in cui arrivi all'aereoporto e in realta' e' finto tipo cartonato 
                         //dafinire
                     }
                 }
             }
-            else if(f==2){//Scelta numero: 1.2.2.2
+            else(f==2);{//Scelta numero: 1.2.2.2
                 /*aggiungrere una mappa dall'alto della foresta per evitare di rifare tutta la citta innevata in ascii
                 far addressare questo ai pensieri del personaggio dicendo che siccome la mamma era preoccupata gli ha dato una mappa che ha nella 24h*/
                 SetConsoleTextAttribute(hc, 0x78);
@@ -3247,7 +3298,7 @@ ______      _ _         ______            _   _
                             MessageBox(NULL,"You were disconnected, Awaiting for lenny to respond and reconnect","This program encountered a fatal error!", MB_ICONERROR | MB_OK | MB_TOPMOST | MB_SYSTEMMODAL);
                             exit(0);
                         }
-                        else if(a==2){//Scelta numero: 1.2.2.2.1.1.2
+                        else(a==2);{//Scelta numero: 1.2.2.2.1.1.2
                             PlaySound(TEXT("./music/LV.wav"), NULL, SND_FILENAME | SND_ASYNC );
                             alice = true;
                             SetConsoleTextAttribute(hc, 0x70);
@@ -3376,7 +3427,7 @@ ______      _ _         ______            _   _
                             goto label2;
                         }
                     }
-                    else if(k==2){//Scelta numero: 1.2.2.2.1.2
+                    else(k==2);{//Scelta numero: 1.2.2.2.1.2
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-Nah im done with this\n",55);
                         SetConsoleTextAttribute(hc, 0x70);
@@ -3393,7 +3444,7 @@ ______      _ _         ______            _   _
                         //dafinire
                     }
                 }
-                else if(s==2){//Scelta numero: 1.2.2.2.2
+                else(s==2);{//Scelta numero: 1.2.2.2.2
                     PlaySound(TEXT("./music/WH.wav"), NULL, SND_FILENAME | SND_SYNC);
                     PlaySound(TEXT("./music/414.wav"), NULL, SND_FILENAME | SND_ASYNC );
                     print_slow(cout,"\nThese stairs makes you tense,\nYou start backing from them while still keeping an eye\n",60);
@@ -3456,11 +3507,11 @@ ______      _ _         ______            _   _
                             print_slow(cout,"You looking for some nice cool place to explore",60);
                             //dafinire
                         }
-                        else if(ap==2){
+                        else(ap==2);{
                             //dafinire
                         }
                     }
-                    else if(ai==2){//Scelta numero: 1.2.2.2.2.2
+                    else(ai==2);{//Scelta numero: 1.2.2.2.2.2
                         print_slow(cout,"You stare at the road for a moment\n",60);
                         Sleep(333);
                         print_slow(cout,"It must be cold in there\nLet's try not to die of hypothermia\nYou take a look around and notice a more slight footpath not covered by snow and decide to follow it",60);
@@ -3472,17 +3523,11 @@ ______      _ _         ______            _   _
         }
     }
 }
-    else if(ac==2){//Scelta numero: 2
+    else(ac==2);{//Scelta numero: 2
         //fare una cutscene ascii con dei clues e restartare il gioco tutto dentro questo else ma senza l'opzione stay in e 
         // completamente diverso e doomed con una scelta sola sempre che ti costringe a fare cose deprimenti come le persone che scelgono di rimanere a letto cazzo
         //tipo che vai in ufficio e chiami tua madre gli dici che ti vuoi uccidere e che fa tutto schifo e poi torni a casa e lo fai cazzo 
         //vaffanculo figlio di puttana fallo fallo fallo fallo FALLO CAZZO CHGE COSA ASPETTI
-    if(a==1){
-
-    }
-    else if(a==2){
-
-    }
     }
     break;
     
