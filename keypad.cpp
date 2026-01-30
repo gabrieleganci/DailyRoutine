@@ -50,7 +50,7 @@ void SnapToBottomLeft(HWND hwnd) {
     keybd_event(VK_LEFT, 0, KEYEVENTF_KEYUP, 0);
     keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0);
     
-    Sleep(300);
+    Sleep(200);
     
     // Premi ESC per uscire dal menu di snap
     keybd_event(VK_ESCAPE, 0, 0, 0);
@@ -64,7 +64,7 @@ void SnapToBottomLeft(HWND hwnd) {
     keybd_event(VK_DOWN, 0, KEYEVENTF_KEYUP, 0);
     keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0);
     
-    Sleep(300);
+    Sleep(200);
     
     // Premi ESC finale per chiudere eventuali menu
     keybd_event(VK_ESCAPE, 0, 0, 0);
