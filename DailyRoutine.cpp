@@ -2988,7 +2988,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\n-Oh this shit is a classic\n",40);
                 SetConsoleTextAttribute(hc, 0x70);
                 Sleep(500);
-                print_slow(cout,"\nYou insert the disk and hit the shuffle button\n",60);
+                print_slow(cout,"\nYou insert the cd and hit the shuffle button\n",60);
                 PlaySound(TEXT("./music/SHSA.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                 Sleep(1500);
                 SetConsoleTextAttribute(hc, 0x78);
@@ -3004,10 +3004,162 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\nWhere are you even going?\n\n1)Go to the beach           2)Go to the airport\n\n",60);
                 ar=cinBloccato();
                 if(ar==1){//Scelta numero: 1.2.2.1.1
-                    print_slow(cout,"\nYou think going to the beach is a good idea\nIt's not too far out of town,\nAnd it's literally straight from now until like 4 exits\n",60);
+                    print_slow(cout,"\nGoing to the beach is a good idea\nIt's not too far out of town,\n",60);
                     Sleep(1000);
-                    //dafinire
-                    //cambiare un po lo stile e i colori del terminale
+                    print_slow(cout,"\nYou keep crusing thinking you really deserve a small break\nEven tho you kind of feel at fault about skipping work\n",60);
+                    Sleep(500);
+                    print_slow(cout,"\nYou kind of feel paranoid thinking about it\nThat place sand shivers down your spine sometimes\nNot only because it's soulless nature bothers you\nBut thinking about how much time you psent in there\n",60);
+                    Sleep(600);
+                    print_slow(cout,"\nAll the time you could have spent doing anything else\nBut instead you filled spread sheets for someone else\n",60);
+                    Sleep(750);
+                    print_slow(cout,"\nIt silently makes you mad\nBut you dont give in\nIt's your free day after all, It would be a shame to ruin it for yourself\n",60);
+                    Sleep(1000);
+                    print_slow(cout,"\nAs the music plays you keep smoking hoping that it will calm you a little\nThe road shortens every second and it's finally time for your exit\n",60);
+                    Sleep(500);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-Fucking sun\n",48);
+                    SetConsoleTextAttribute(hc, 0x70);
+                    print_slow(cout,"\nThe sun is shining in your eyes\nYou really hate it\nEven in your day to day life, the sun really bothers you,\n",60);
+                    Sleep(500);
+                    print_slow(cout,"\nYou reach for a pair of sunglasses in the glove box",60);
+                    Sleep(400);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-Much better\n",45);
+                    SetConsoleTextAttribute(hc, 0x70);
+                    Sleep(2000);
+                    print_slow(cout,"And after a few minutes you're there.",60);
+                    Sleep(400);
+                    print_slow(cout,"You park at the 'beach only' parking area\nIn one of the 4 free spaces\n",60);
+                    Sleep(500);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-What a nightmare",60);
+                    Sleep(600);
+                    print_slow(cout,"\n-Why are there so many people on a monday morning?",60);
+                    Sleep(250);
+                    PlaySound(TEXT("./music/FA.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+                    SetConsoleTextAttribute(hc, 0x70);
+                    print_slow(cout,"You get out of the car with:\nNo umbrella\nNo beach towel\nNo deckchair\nAnd no will to live eiter\n",60);
+                    Sleep(1200);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-Why did i come to the beach?\n",50),
+                    SetConsoleTextAttribute(hc, 0x70);
+                    Sleep(200);
+                    print_slow(cout,"\nYou really hate the beach actually\nYou really enjoyed it as a kid but now it really annoys you\n",60);
+                    Sleep(300);
+                    print_slow(cout,"\nThe sand getting anywhere\nThe dirty water\nThe disgusting fishes\nAnd The fucking familyes\n",60);
+                    Sleep(750);
+                    print_slow(cout,"\nYou start waking from the parking place to the actual beach\nJust with your phone and sunglasses\n",60);
+                    Sleep(400);
+                    print_slow(cout,"\nWhile you walk you realize maybe why you came,\n",60);
+                    Sleep(400);
+                    print_slow(cout,"\nMaybe the fact that you enjoyed it as a kid was enough to come\nAll those little inncocent memories\nFigthing the waves until you were out of breath\nEating icecream whit your friends\nDigging huge holes\nWho knew that those moment would become happy memories\n",60);
+                    Sleep(750);
+                    print_slow(cout,"\nYou crack a smile\n",60);
+                    Sleep(2000);
+                    print_slow(cout,"\nYou reach the free beach entrance,\n",60);
+                    //inserire foto spiaggia
+                    Sleep(500);
+                    print_slow(cout,"\nThe first thing that you notice right away is that\n",60);
+                    Sleep(750);
+                    SetConsoleTextAttribute(hc, 0x78);
+                    print_slow(cout,"\n-T- There's no one",50);
+                    Sleep(300);
+                    print_slow(cout,"\n-HELL YEAH!\n",30);
+                    SetConsoleTextAttribute(hc, 0x70);
+                    Sleep(450);
+                    print_slow(cout,"\nFor the first time today you feel happy\n",60);
+                    Sleep(500);
+                    print_slow(cout,"\nThe sight of the clean shore with no annoyng human is so delightful to you\nYou're so exited you don't even know what to do right now",60);
+                    Sleep(350);
+                    print_slow(cout,"\n\n1)Take a bath          2)Take a nap\n\n",60);
+                    av=cinBloccato;
+                    if(av==1){//Scelta numero: 1.2.2.1.1.1
+                        print_slow(cout,"\nYou stare at the sea for some time\n",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nIt feels calm\nThe waves are symmetrical\nEvery time the same ammount of energy\nAlmost copy and pasted\n",60);
+                        //inserire foto mare
+                        Sleep(750);
+                        print_slow(cout,"You take off your shoes and socks and walk closer tho the shoreline\nThe water bounces on and off your feet\nYou reserve some time to take it all in\n",60);
+                        Sleep(2500);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-Hey y'know",70);
+                        Sleep(1000);
+                        print_slow(cout,"\n-That's not so bad,",50);
+                        Sleep(400),
+                        print_slow(cout," I kinda needed that\n",60);
+                        Sleep(1000);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nYou whisper as you feel the stress of your everyday life fade from your body and mind\n",60);
+                        Sleep(600);
+                        print_slow(cout,"\nYou walk a little further into the water\nYour pants start soaking up\n",60);
+                        Sleep(1500);
+                        print_slow(cout,"\nFor you're whole life you've feel detached from things\nYou've always paid little attention to the people and places around you\nAlways wanting to bend your future, to break the routine\n",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nBut this little moments really makes you wonder\nIs it even worth it living like this\nCaring about something that feels so unachivable\nChasing a goal so far away\nAnd ignoring all the beuty that's already around you all the time\n",60);
+                        Sleep(2000);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-Fuck\n",43);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        Sleep(240);
+                        print_slow(cout,"\nYou jump in the water fully chloted in a sort of dive\n",60);
+                        mostraAsciiArt("void");
+                        print_slow(cout,"\nYou instinctively close your eyes,\nYou like the feeling of being underwater\nEverything feels calm and",60);
+                        Sleep(550);
+                        print_slow(cout," gone in a way\n",60);
+                        Sleep(500);
+                        print_slow(cout,"\nYou start swimming down and don't seem to find a bottom,\nNot even the ground where you were standing moments ago\n",60);
+                        Sleep(750);
+                        print_slow(cout,"\nYou hear your heart starting to beat real fast,\nYou swim back up to not run out of oxygen\n",60);
+                        PlaySound(TEXT("./music/SSM.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
+                        print_slow(cout,"\nYou make it in time and take a deep breath once out\nYou drag your hair back,\nWhipe the water out of your eyes and open them back\n",60);
+                        //inserire foto spiaggai con balene
+                        Sleep(350);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-Whoa what the hell?\n",48);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        Sleep(750);
+                        print_slow(cout,"\nYou stare at the beach where you came from,\nIt's no longer empty.\n",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nNow there are a lot of whales\n",60);
+                        Sleep(500);
+                        SetConsoleTextAttribute(hc, 0x78);
+                        print_slow(cout,"\n-De- ",70);
+                        Sleep(100);
+                        print_slow(cout,"Dead whales?\n",65);
+                        Sleep(500);
+                        print_slow(cout,"\n-Why?",55);
+                        Sleep(100);
+                        print_slow(cout,"\n-From where?\n",55);
+                        Sleep(750);
+                        SetConsoleTextAttribute(hc, 0x70);
+                        print_slow(cout,"\nThe huge corpes are scattered all over the sand\nThere's no sign of dragging around them\nAt least you can tell from the ones close to you\n",60);
+                        Sleep(400);
+                        print_slow(cout,"\nSome have a hole in the flesh, exposing organs and interior\nFrom the hole, dense blood drips out mixing with the dry sand",60);
+                        Sleep(800);
+                        print_slow(cout,"\nLooking up yopu notice the sky filling with clouds\nThe opposite of what you read on the forecast\nEven tho the sun is covered the whale blood stilly reflects a golden light\n",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nA low pich fills your ears\nThe shadows of the clouds cast onto the beach and darken the atmosphere\nIt's colder now, feels like winter\n",60);
+                        Sleep(1000);
+                        print_slow(cout,"\nYou're in shock and don't know what to do,\nYour stomach growls,\nYour mouth fills with saliva\n",60);
+                        Sleep(1500);
+                        print_slow(cout,"\nYou're hungry.\n,",60);
+                        Sleep(1000);
+                        print_slow(cout,"\n\n1)Feast          2)Don't give in\n\n",60);
+                        ay=cinBloccato;
+                        if(ay==1){//Scelta numero: 1.2.2.1.1.1.1
+                            //dafinire
+                        }
+                        else(ay==2){//Scelta numero: 1.2.2.1.1.1.2
+                            //dafinire
+                        }
+                    }
+                    else(av==2){//Scelta numero: 1.2.2.1.1.2
+                        print_slow(cout,"\nYou lay on the soft sand\nIs not as bad as you remembered\n",60);
+                        Sleep(350);
+                        print_slow(cout,"\nYou can even make a little pillow with it\nYour back feels warm too\nYou close your eyes.\n",60);
+                        Sleep(1000);
+                        //dafinire
+                    }
                 }
                 else(ar==2);{//Scelta numero: 1.2.2.1.2
                     print_slow(cout,"\nAs you puff the joint the traffic starts to flow again\nYou finally can give a purpose to your Mitsubishi Lancer.\n",60);
