@@ -42,10 +42,12 @@ void LockConsoleWindowSize() {
                  SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED);
 }
 
-void mostraAsciiArt(const std::string& nomeArt, int zoom = 100) {
-    std::ofstream file("ascii_command.txt");
-    file << nomeArt << ";" << zoom;
-    file.close();
+void mostraAsciiArt(const std::string& nomeArt) {
+    std::ofstream file("ascii_command.txt", std::ios::trunc);
+    if (file.is_open()) {
+        file << nomeArt << std::endl;   // aggiunge un newline per sicurezza
+        file.close();
+    }
 }
 
 void setSfondo(int colore) {
@@ -678,7 +680,7 @@ ______      _ _         ______            _   _
                             Sleep (500);
                             print_slow(cout,"\nAshley gets back up and reveals a knife hidden in a drawer\nShe kicks the woman back and pounces on her with the knife\nI join her too with whatever that weapon is\nWe don't know how much we go on\n",50);
                             Sleep (1000);
-                            print_slow(cout,"\nSome tense minutes elapse, the only thing that goes on in the air are the sound of screams from the woman and the rage flawing from the mind trough the arms of both of us\nWhat a weird first date\nYou both look at each other and start laughing so hard like two crazy persons\nYou hugh covered in blood\nYou killed a person\n",60);
+                            print_slow(cout,"\nSome tense minutes elapse, the only thing that goes on in the air are the sound of screams from the woman and the rage flawing from the mind through the arms of both of us\nWhat a weird first date\nYou both look at each other and start laughing so hard like two crazy persons\nYou hugh covered in blood\nYou killed a person\n",60);
                             Sleep (1000);
                             print_slow(cout,"\nYou feel relief for a second, you both think you made it\nUntil something happens\nThe dead girl corpse starts ticking\nYou look into each other eyes\nKnowing exactly what is going to happen\nThere was a bomb in there\nWell at least you feel like you didn't commit any murder\nSince clearly that wasn't a human at 100%\n",60);
                             Sleep(500);
@@ -694,7 +696,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\nThe two of you needlessly try running\nSeconds later, The Shockwave hits you\nThen the fire\nThen the fragments form the explosion\nThe loud bang strangely came for last, a loud whistle, then silence\nShe was the last thing i saw\nIn a second two lives were gone\nBut a second later",60);
                             Sleep (3500);
                             system("cls");
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             cambiaColoreSfondo(0,15);
                             for (int i = 0; i <= total; ++i) {
                             displayProgressBar(i, total);
@@ -714,7 +716,7 @@ ______      _ _         ______            _   _
                             Sleep(400);
                             SetConsoleTextAttribute(hc, 0x70);
                             print_slow(cout,"\nYou whisper as the poison from the bullet is slowly releasing in your body\nA subtle yet lethal way to kill\nThe last things you hear are screams, phone calls, syrens.\nNothing matters, at one point you closed your eyes, it felt like sleeping.\nEverything was terrible, but at the same time everything was so calm\nAnd in the exact moment you fell like falling in an infinite pit and about to touch the bottom, You feel a blinding light and\n-------------------------------------------------------",60);
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             cambiaColoreSfondo(0,15);
                             for (int i = 0; i <= total; ++i) {
                             displayProgressBar(i, total);
@@ -736,7 +738,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nYou wave at her and walk home\nTurn on the pc and start grinding on the last mmo,\nYou farm for a few hours and then hop to bed.\n\nGood night!",60);
                         Sleep(5000);
                         system("cls");
-                        mostraAsciiArt("void");
+                        setSfondo(0);
                         cambiaColoreSfondo(0,15);
                         for (int i = 0; i <= total; ++i) {
                         displayProgressBar(i, total);
@@ -761,7 +763,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\n-WELL, looks like tonight is between us boys!\n",40);
                     Sleep(750);
                     SetConsoleTextAttribute(hc, 0x70);
-                    print_slow(cout,"\nAfter that you just hear cough echoing trough the place\nNo one really vibes with you\nYou just exchange eye contact with the guy sitting besides you\n",60);
+                    print_slow(cout,"\nAfter that you just hear cough echoing through the place\nNo one really vibes with you\nYou just exchange eye contact with the guy sitting besides you\n",60);
                     Sleep(750);
                     print_slow(cout,"\n1)Grab a drink           2)'Make some noise'\n",60);
                     qq=cinBloccato();
@@ -1139,7 +1141,7 @@ ______      _ _         ______            _   _
                     system("cls");
                     print_slow(cout,"\nYou were still breathing and throwing up blood for a few minutes after\nThe girl just left you there\nYou don't know what happened after\nYou only know that everything was dark and cold for time\n\nThen           Light\n",60);
                     Sleep(500);
-                    mostraAsciiArt("void");
+                    setSfondo(0);
                     system("cls");
                     for (int i = 0; i <= total; ++i) {
                     displayProgressBar(i, total);
@@ -1238,7 +1240,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-fuck, i need to get her off my head\n-we exchanged information, i'll call her.\n",40);
                         Sleep(750);
-                        print_slow(cout,"\nYour legs feels heavy during the rise\nThe silence makes you hear everything\nThe electricity going trough the muted speakers\nThe weight pulling the elevator up and the cabin surfing the wire\nAnd then it stops\nAnd the door opens\n",60);
+                        print_slow(cout,"\nYour legs feels heavy during the rise\nThe silence makes you hear everything\nThe electricity going through the muted speakers\nThe weight pulling the elevator up and the cabin surfing the wire\nAnd then it stops\nAnd the door opens\n",60);
                         system("cls");
                         cambiaColoreSfondo(1,15);
                         Sleep(1200);
@@ -1274,7 +1276,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"You don't even have the time to process to ask what the fuck she's talking about that...",60);
                             Sleep(3000);
                             system("cls");
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             cambiaColoreSfondo(0,15);
                             for (int i = 0; i <= total; ++i) {
                             displayProgressBar(i, total);
@@ -1283,7 +1285,7 @@ ______      _ _         ______            _   _
                             goto label2;
                         }
                         else(r==2);{//Scelta numero: 1.1.1.2.2.1.2
-                            print_slow(cout,"\nYou look down and back off\nYou don't wanna die already\nTake the elevator for the ground floor\nWhile the floor passes you look at your reflection in the mirror\nYou don't look that good, your hair are messy\nYou look tired, you have rings under your eyes\nOnce at the ground floor you think it's a good idea to walk home instead of driving\nReception is empty, shame, Pam would have been the only one capable to bring your emotions back up\nYou walk home alone in the coldness of the night\nYou feel a little empty after today,\nWhat if that girl really killed herself?\nI mean you could have been friends\nYou could have taught her what you learned\nAll the things that you know about emotions, that instead just live into your four walls\nYou could have made it trough\nTogather maybe\n",60);
+                            print_slow(cout,"\nYou look down and back off\nYou don't wanna die already\nTake the elevator for the ground floor\nWhile the floor passes you look at your reflection in the mirror\nYou don't look that good, your hair are messy\nYou look tired, you have rings under your eyes\nOnce at the ground floor you think it's a good idea to walk home instead of driving\nReception is empty, shame, Pam would have been the only one capable to bring your emotions back up\nYou walk home alone in the coldness of the night\nYou feel a little empty after today,\nWhat if that girl really killed herself?\nI mean you could have been friends\nYou could have taught her what you learned\nAll the things that you know about emotions, that instead just live into your four walls\nYou could have made it through\nTogather maybe\n",60);
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"\n-Ppfffff..\n",48);
@@ -1309,7 +1311,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\n-We saw you've been running in circles lately\n",80);
                             SetConsoleTextAttribute(hc, 0x70);
                             Sleep(500);
-                            print_slow(cout,"\nYou give her a confused smirk,\nBut she probably can't see cause it seems like she's looking at the ground trough the sun glasses\nShe goes on:\n",60);
+                            print_slow(cout,"\nYou give her a confused smirk,\nBut she probably can't see cause it seems like she's looking at the ground through the sun glasses\nShe goes on:\n",60);
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x72);
                             print_slow(cout,"\n-And from what i've read, that's not really your thing\n",80);
@@ -1364,7 +1366,7 @@ ______      _ _         ______            _   _
                             Sleep(200);
                             print_slow(cout," don't be stupid and try to fight me.\n",40);
                             SetConsoleTextAttribute(hc, 0x70);
-                            print_slow(cout,"\nIn a rapid movement she takes both of her hands and puts them on your temples\nThen she puts both of her thumbs in the middle of your forehead\nYou don't even have time to ask yourself what she's doing\nThat she pushes really hard with her thumbs\nFor a fraction of a second a sharp pain hits you in that spot\nLike a needle went trough there\nYou try to move around but your body is not responding at your inputs anymore,\n",40);
+                            print_slow(cout,"\nIn a rapid movement she takes both of her hands and puts them on your temples\nThen she puts both of her thumbs in the middle of your forehead\nYou don't even have time to ask yourself what she's doing\nThat she pushes really hard with her thumbs\nFor a fraction of a second a sharp pain hits you in that spot\nLike a needle went through there\nYou try to move around but your body is not responding at your inputs anymore,\n",40);
                             Sleep(750);
                             print_slow(cout,"Slowly your eyelids slide close",60);
                             Sleep(500);
@@ -1374,7 +1376,7 @@ ______      _ _         ______            _   _
                             SetConsoleTextAttribute(hc, 0x02);
                             print_slow(cout,"\n-",75);//dainserirefrase e hint
                             Sleep(400);
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             system("cls");
                             cambiaColoreSfondo(0,15);
                             for (int i = 0; i <= total; ++i) {
@@ -1507,7 +1509,7 @@ ______      _ _         ______            _   _
                                 print_slow(cout,"\nHonestly for something that started from nothing, you feel pretty ok\nShe's a fun girl, plus she plays videogames so win win\nYou feel like this can be the start of something fun\nMaybe a good friendship who knows\nYou decide to hop in bed and see what will happen tomorrow\nCause every day it's a new discovery\n\nYou close your eyes.",50);
                                 Sleep(1500);
                                 system("cls");
-                                mostraAsciiArt("void");
+                                setSfondo(0);
                                 cambiaColoreSfondo(0,15);
                                 Sleep(500);
                                 for (int i = 0; i <= total; ++i) {
@@ -1537,9 +1539,9 @@ ______      _ _         ______            _   _
             print_slow(cout,"\n-aigth im coming\n",45);
             SetConsoleTextAttribute(hc, 0x70);    
             print_slow(cout,"\nGo up a few floors and knock a few times\n",60);
-            mostraAsciiArt("boss",50);
+            mostraAsciiArt("boss.ansi");
             Sleep(1000);
-            print_slow(cout,"\nHe's there sitting at his desk in front of you\nHis laptop is facing him, he looks more intrasted in that then you\nHe welcomes you with a sad nod and starts talking with his hoarse voice\nHe yaps for a bit and then that line hits you like a knife in the chest\n",60);
+            print_slow(cout,"\nHe's there sitting at his desk in front of you\nHis mac is facing him, he looks more intrasted in that then you\nHe welcomes you with a sad nod and starts talking with his hoarse voice\nHe yaps for a bit and then that line hits you like a knife in the chest\n",60);
             Sleep(500);
             SetConsoleTextAttribute(hc, 0xCF);
             print_slow(cout,"\n-I Think we'll have to fire you",40);
@@ -1555,7 +1557,7 @@ ______      _ _         ______            _   _
                 Sleep(500);
                 SetConsoleTextAttribute(hc, 0x70);
                 print_slow(cout,"\nYou mumble before leaving the room\n",60);
-                mostraAsciiArt("setup",50);
+                mostraAsciiArt("setup.ansi");
                 print_slow(cout,"\nYou go back to your desk for the last moments to take your stuff\nAs you fill the box with useless junk the desk phone rings\nThat phone is actually yours, you brought it from an old house to here so you should take it back with you logically\n",60);
                 Sleep(500);
                 SetConsoleTextAttribute(hc, 0x78);
@@ -1738,7 +1740,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x7E);
                         print_slow(cout,"\n-Hey man what the fuck?\n",37);
                         SetConsoleTextAttribute(hc, 0x70);
-                        print_slow(cout,"\nYou start running trough the office stalls\nYour heart rate start raising as soon you realize everybody is looking at you\nYou go trough a few other rooms and soon realize you can't run in circles\n\n1)Hide in the bathroom           2)Go down the stairs\n\n",45);
+                        print_slow(cout,"\nYou start running through the office stalls\nYour heart rate start raising as soon you realize everybody is looking at you\nYou go through a few other rooms and soon realize you can't run in circles\n\n1)Hide in the bathroom           2)Go down the stairs\n\n",45);
                         ak=cinBloccato();
                         if(ak==1){//Scelta numero: 1.1.2.1.1.2.1
                             print_slow(cout,"\n\nYou turn towards the bathrooms and enter the man one\nYou see few coworkers washing their hands, familiar faces\nYou enter the toilet room and lock the door behind you\n",50);
@@ -1845,7 +1847,7 @@ ______      _ _         ______            _   _
                 Sleep(750);
                 print_slow(cout,"\nYou start picking up random objects form his desk and trowing them at him\nSeeing the stapler hitting his forehead was so satisfying\nUntil, blinded by rage you accidentally throw the paper cutter,\nDirectly at his face\n",60);
                 Sleep(750);
-                mostraAsciiArt("bossh",50);
+                mostraAsciiArt("bossh.ansi");
                 print_slow(cout,"\nYou hit his eye\nHe starts bleeding, your blood goes cold\nHe starts screaming too\nThe comfort of the anger is gone, and you're just left in a mess you caused\n\nHow will you escape that?\n\n1)'Go postal'            2)Get out\n\n",55);
                 m=cinBloccato();
                 if(m==1){//Scelta numero: 1.1.2.2.1
@@ -1888,7 +1890,7 @@ ______      _ _         ______            _   _
                         PlaySound(TEXT("./music/DBTH.wav"), NULL, SND_FILENAME | SND_ASYNC);
                         cambiaColoreSfondo(12, 15);
                         Sleep(80);
-                        mostraAsciiArt("void");
+                        setSfondo(0);
                         cambiaColoreSfondo(0,15);
                         Sleep(500);
                         for (int i = 0; i <= total; ++i) {
@@ -1990,7 +1992,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\nYour heart beats out of your chest,\nYou've never been in such a situation\nYou feel trapped by this office\nYou don't want to come out of it anymore\nMaybe hell won't be so cruel if you don't bring someone with you\n\nYou put the gun barrel on your head and press the trigger\n",60);
                             system("cls");
                             Sleep(750);
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             cambiaColoreSfondo(0,15);
                             for (int i = 0; i <= total; ++i) {
                             displayProgressBar(i, total);
@@ -2121,7 +2123,7 @@ ______      _ _         ______            _   _
                             Sleep (3500);
                             system("cls");
                             cambiaColoreSfondo(0,15);
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             Sleep(500);
                             for (int i = 0; i <= total; ++i) {
                             displayProgressBar(i, total);
@@ -2137,7 +2139,7 @@ ______      _ _         ______            _   _
                         w=cinBloccato();
                         if(w==1){//Scelta numero: 1.1.2.2.2.2.1
                             print_slow(cout,"\nDon't care at all, your steps on the ground never felt so good\nThe sun is shining and you feel like breathing for the first time\nThis is so much fun, You see the environment changing around you\nYou start running quicker\n",43);
-                            mostraAsciiArt("faraway",50);
+                            mostraAsciiArt("faraway.ansi");
                             print_slow(cout,"You see all the faces of the people for a split second\nYou really don't know what to do next without a job\nYou just want to enjoy the moment\nThe dream becomes even more real when you realize you're almost out of town\nThe main color surrounding you now is the yellow of all the hay camps around the road\nThe sidewalk ends there's only a gray road with patches of wheat to the sides\n\n",37);
                             cout<<"1)Keep running           2)Stop\n\n";
                             auto start = chrono::steady_clock::now();
@@ -2156,7 +2158,6 @@ ______      _ _         ______            _   _
                             }
                             }
                             if(aj==1){label6://Scelta numero: 1.1.2.2.2.2.1.1
-                                PlaySound(TEXT("./music/LWS.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                                 print_slow(cout,"\nYou run and run in the middle of the road\nYou're not even sweating,\n",35);
                                 print_slow(cout,"Funny how sometimes your brain decides to release random chemicals\nThe fact that your dressed so well makes it even funnier\nSome cars honk at you, you laugh at them\n",22);
                                 print_slow(cout,"\nA guy screams 'Hey Forest Gump get the fuck out'\nYour heart is asking you to stop\nBut your mind is telling you to keep going\n",20);
@@ -2164,21 +2165,23 @@ ______      _ _         ______            _   _
                                 print_slow(cout,"\nYou keep running\nYou're going fast, really fast,\nfast as fuck boy, you feel like in a cartoon\nBut sill enjoy it, you don't feel tired\nYou just keep burning your legs\nUntil you get to a point of non-return\nIn front of you the road was over and just left a overhang",15);
                                 print_slow(cout,"\nYou try stopping but it's too late,\nYou plunge over the pit,\nIt's orange like a kenyon,\nIt's deep, around 35m\nSurely enough to kill you, you close your eyes and wait for your death\nYou go down meter by meter,\n",12);
                                 SetConsoleTextAttribute(hc, 0x78);
+                                PlaySound(TEXT("./music/LWS.wav"), NULL, SND_FILENAME | SND_ASYNC | SND_LOOP);
                                 print_slow(cout,"\n-So far so good\n",11);
                                 SetConsoleTextAttribute(hc, 0x70);
-                                print_slow(cout,"\nYou keep repeating in your head\nYou open your eyes back just to see that you're still falling\nInside of the earth trough the terrain\nIt's like the ground was just a pass trough texture without foundation\nThis can't be real, this is impossible\nThat's why i wasn't feeling tired\nThis is why there is an open unfinished road in the middle of people\nThis is not real.\n",10);
+                                print_slow(cout,"\nYou keep repeating in your head\nYou open your eyes back just to see that you're still falling\nInside of the earth through the terrain\nIt's like the ground was just a pass through texture without foundation\nThis can't be real, this is impossible\nThat's why i wasn't feeling tired\nThis is why there is an open unfinished road in the middle of people\nThis is not real.\n",10);
                                 Sleep(1000);
                                 print_slow(cout,"\nYou close your eyes again\n",60);
-                                mostraAsciiArt("void");
+                                setSfondo(0);
                                 system("cls");
                                 cambiaColoreSfondo(0,0);
-                                Sleep(3000);
+                                Sleep(5000);
                                 cambiaColoreSfondo(15,0);
                                 print_slow(cout,"\nThen",80);
                                 Sleep(600);
                                 print_slow(cout," you open your eyes to a blinding white\n",60);
-                                mostraAsciiArt("ocean",9);
+                                setSfondo(15);
                                 print_slow(cout," \nYour bottom half feels heavy, you're submerged in water\nIn every direction, for as far as the eye can stretch there was water\nYou were falling in the sea\nIt's weirdly warm and comforting\n",60);
+                                mostraAsciiArt("ocean.ansi");
                                 Sleep(1000);
                                 SetConsoleTextAttribute(hc, 0xF8);
                                 print_slow(cout,"\n-Maybe i should have stopped...\n",50);
@@ -2237,7 +2240,7 @@ ______      _ _         ______            _   _
                                 SetConsoleTextAttribute(hc, 0x0F);
                                 Sleep(200);
                                 SetFontSize(24);
-                                mostraAsciiArt("void");
+                                setSfondo(0);
                                 for (int i = 0; i <= total; ++i) {
                                 displayProgressBar(i, total);
                                 std::this_thread::sleep_for(std::chrono::milliseconds(50));}
@@ -2683,7 +2686,7 @@ ______      _ _         ______            _   _
                                 //SuonoJumpscare?
                                 Sleep(50);
                                 system("cls");
-                                mostraAsciiArt("void");
+                                setSfondo(0);
                                 cambiaColoreSfondo(0,15);
                                 PlaySound(NULL, NULL, 0);
                                 for (int i = 0; i <= total; ++i) {
@@ -2699,7 +2702,7 @@ ______      _ _         ______            _   _
     }
     else(xxx==2);{//Scelta numero: 1.2
         print_slow(cout,"\nYou're tired to go every day in the same place,\nYou need something different today\nYour city is big and you want to have some fun\n",60);
-        mostraAsciiArt("drive",30);
+        mostraAsciiArt("drive.ansi");
         Sleep(400);
         print_slow(cout,"\nSo you start walking to your car parked down the road\n\nWhere are you going?\n\n1)Go visit an old friend            2)Just drive around\n\n",55);
         d=cinBloccato();
@@ -2720,7 +2723,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\nYou silently approach the window\nJust to see the corpse of Josh laying on the sofa face down\n",60);
                 Sleep(560);
                 SetConsoleTextAttribute(hc, 0x78);
-                print_slow(cout,"\n-That douchbag must be sleeping\n",60);
+                print_slow(cout,"\n-That douchebag must be sleeping\n",60);
                 Sleep(250);
                 SetConsoleTextAttribute(hc, 0x70);
                 print_slow(cout,"\nYou ring a couple more times and see him flinch a little on his throne\nFrom the outside you notice that the place is filthy\nMultiple beer cans and alcohol bottles cover the small living room table\n\n1)Go somewhere else.          2)'Welcome yourself'\n\n",60);
@@ -2762,7 +2765,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\n-Weird",40);
                         Sleep(400);
                         SetConsoleTextAttribute(hc, 0x70);
-                        print_slow(cout,"\nInspecting it closer you notice a small hole innit\nAt first you try looking trough it but realize it's useless since you see nothing the other way\nOn a second inspection you notice that is more familiar than what you thought\nIt's a USB port\nWell nothing you can do about it\nSo you climb back up and re-enter the house\n\n1)Read the note.            2)Wake up Josh.\n\n",60);
+                        print_slow(cout,"\nInspecting it closer you notice a small hole innit\nAt first you try looking through it but realize it's useless since you see nothing the other way\nOn a second inspection you notice that is more familiar than what you thought\nIt's a USB port\nWell nothing you can do about it\nSo you climb back up and re-enter the house\n\n1)Read the note.            2)Wake up Josh.\n\n",60);
                         aw=cinBloccato();
                         if(aw==1){//Scelta numero: 1.2.1.2.2.1.1
                             print_slow(cout,"\nYou stealthily take the note and start reading\n\n",60);
@@ -2776,7 +2779,7 @@ ______      _ _         ______            _   _
                             goto label5;
                         }
                         else(aw==2);{//Scelta numero: 1.2.1.2.2.1.2
-                            print_slow(cout,"\nYou look at Josh, poor guy going trough all that\nYou should cheer him a little up since you're here\nYou shout:\n",60);
+                            print_slow(cout,"\nYou look at Josh, poor guy going through all that\nYou should cheer him a little up since you're here\nYou shout:\n",60);
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"\n-Knock knock brother\n",50);
                             Sleep(500);
@@ -2809,7 +2812,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\n-Listen ill'let you pull your shit together then we'll talk\n-i'll clean\n",45);
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x70);
-                            print_slow(cout,"\nHe nods still zoned out\nThen heads towards the bathroom\nYou go to the kitchen and pick the black trash bags from a drawer\nYou start trowing various cans and bottles in the bag\nYou clean first the table, then the small desk, then the shelf\nWhile cleaning on there you see two envelopes\nYou know it isn't right to go trough someone else's stuff\nBut curiosity is eating you inside\nYou have to open at least one\n\n1)Envelope 1           2)Envelope 2\n\n",60);
+                            print_slow(cout,"\nHe nods still zoned out\nThen heads towards the bathroom\nYou go to the kitchen and pick the black trash bags from a drawer\nYou start trowing various cans and bottles in the bag\nYou clean first the table, then the small desk, then the shelf\nWhile cleaning on there you see two envelopes\nYou know it isn't right to go through someone else's stuff\nBut curiosity is eating you inside\nYou have to open at least one\n\n1)Envelope 1           2)Envelope 2\n\n",60);
                             at=cinBloccato();
                             if(at==1){//Scelta numero: 1.2.1.2.2.1.2.1
                                 print_slow(cout,"\nYou look at the envelope on the left\nIt comes in a black envelope, unusual\nYou reach to open it and notice that someone already opened it\n",60);
@@ -2848,7 +2851,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"That's fucked up\nYou wasn't expecting that at all\nYou put back the letter and think for a bit\n\n1)Wake up Josh            2)Explore the House\n\n",60);
                         j=cinBloccato();
                         if(j==1){//Scelta numero: 1.2.1.2.2.2.1
-                            print_slow(cout,"\nYou look at Josh, poor guy going trough all that\nYou should cheer him a little up since you're here\nYou shout:\n",60);
+                            print_slow(cout,"\nYou look at Josh, poor guy going through all that\nYou should cheer him a little up since you're here\nYou shout:\n",60);
                             SetConsoleTextAttribute(hc, 0x78);
                             print_slow(cout,"\n-Knock knock brother\n",50);
                             Sleep(500);
@@ -2880,7 +2883,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\n-Listen ill'let you pull your shit together then we'll talk\n-i'll clean\n",45);
                             Sleep(500);
                             SetConsoleTextAttribute(hc, 0x70);
-                            print_slow(cout,"\nHe nods still zoned out\nThen heads towards the bathroom\nYou go to the kitchen and pick the black trash bags from a drawer\nYou start trowing various cans and bottles in the bag\nYou clean first the table, then the small desk, then the shelf\nWhile cleaning on there you see two envelopes\nYou know it isn't right to go trough someone else's stuff\nBut curiosity is eating you inside\nYou have to open at least one\n\n1)Envelope 1           2)Envelope 2\n\n",60);
+                            print_slow(cout,"\nHe nods still zoned out\nThen heads towards the bathroom\nYou go to the kitchen and pick the black trash bags from a drawer\nYou start trowing various cans and bottles in the bag\nYou clean first the table, then the small desk, then the shelf\nWhile cleaning on there you see two envelopes\nYou know it isn't right to go through someone else's stuff\nBut curiosity is eating you inside\nYou have to open at least one\n\n1)Envelope 1           2)Envelope 2\n\n",60);
                             ao=cinBloccato();
                             if(ao==1){//Scelta numero: 1.2.1.2.2.2.1.1
                                 print_slow(cout,"\nYou look at the envelope on the left\nIt comes in a black envelope, unusual\nYou reach to open it and notice that it was already open\n",60);
@@ -2900,7 +2903,7 @@ ______      _ _         ______            _   _
                                 Sleep(30000);
                                 print_slow(cout,"\nYou also notice a flash drive in it\nInspecting it it looks like a normal USB\nYou don't know what to do with it so you just put everything back\n",60);
                                 Sleep(1500);
-                                print_slow(cout,"\nSo you sit on the couch waiting for Josh to get ready\nYou scroll trough your phone meanwhile\n",60);
+                                print_slow(cout,"\nSo you sit on the couch waiting for Josh to get ready\nYou scroll through your phone meanwhile\n",60);
                                 Sleep(2000);
                                 system("start https://drive.google.com/file/d/1hSbz8di-He8dNCGFT75vnCkeg-iiXnHL/view?usp=drive_link");
                                 Sleep(3500);
@@ -3059,7 +3062,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"-Come sit let's have a talk\n",50);
                             Sleep(750);
                             SetConsoleTextAttribute(hc, 0x70);
-                            print_slow(cout,"\nYou both walk trough the mess onto the couch\n",60);
+                            print_slow(cout,"\nYou both walk through the mess onto the couch\n",60);
                             Sleep(3000);
                             print_slow(cout,"He sits back on there you sit on the smaller leather chair\n",60);
                             Sleep(750);
@@ -3099,7 +3102,7 @@ ______      _ _         ______            _   _
             Sleep(200);
             SetConsoleTextAttribute(hc, 0x70);
             print_slow(cout,"\nSo you enter you car and speed off\nDriving freely makes you feel good\nYou never know what life has to offer you\nYou think as the gray of the city starts turning into green of the nature\nAll of a sudden a surprise actually strikes you\n",60);
-            mostraAsciiArt("traffic",30);
+            mostraAsciiArt("traffic.ansi");
             Sleep(750);
             print_slow(cout,"\nIt's a long line of traffic in the middle of nothing\n\n1)Wait for it to pass.             2)Get out the car.\n\n",60);
             f=cinBloccato();
@@ -3111,7 +3114,7 @@ ______      _ _         ______            _   _
                 SetConsoleTextAttribute(hc, 0x78);
                 print_slow(cout,"\n-Jesus..\n",40);
                 SetConsoleTextAttribute(hc, 0x70);
-                print_slow(cout,"\nYou start going trough your cd's to hear your thoughts a little less\n",60);
+                print_slow(cout,"\nYou start going through your cd's to hear your thoughts a little less\n",60);
                 Sleep(500);
                 SetConsoleTextAttribute(hc, 0x78);
                 print_slow(cout,"\n-Oh this shit is a classic\n",40);
@@ -3231,7 +3234,7 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x70);
                         Sleep(240);
                         print_slow(cout,"\nYou jump in the water fully chloted in a sort of dive\n",60);
-                        mostraAsciiArt("void");
+                        setSfondo(0);
                         print_slow(cout,"\nYou instinctively close your eyes,\nYou like the feeling of being underwater\nEverything feels calm and",60);
                         Sleep(550);
                         print_slow(cout," gone in a way\n",60);
@@ -3287,7 +3290,7 @@ ______      _ _         ______            _   _
                         Sleep(350);
                         print_slow(cout,"\nYou can even make a little pillow with it\nYour back feels warm too\nYou close your eyes.\n",60);
                         cambiaColoreSfondo(0,15);
-                        mostraAsciiArt("void");
+                        setSfondo(0);
                         Sleep(5000);
                         //dafinire
                     }
@@ -3298,7 +3301,7 @@ ______      _ _         ______            _   _
                     SetConsoleTextAttribute(hc, 0x78);
                     print_slow(cout,"\n-I want to get out of this fucking city\n",40);
                     SetConsoleTextAttribute(hc, 0x70);
-                    print_slow(cout,"\nYou press on the pedal sliding trough the six lane high way\nAnd with your arm out of the window the trip progresses smoothly\n",60);
+                    print_slow(cout,"\nYou press on the pedal sliding through the six lane high way\nAnd with your arm out of the window the trip progresses smoothly\n",60);
                     Sleep(200);
                     print_slow(cout,"\nDays off really make your head fill with funny ideas,\nYou wanted to be a taxi driver for some time\nBut it would probably make you even more insane than living in this place\nYou don't wanna end up like that guy in the movie\nEven tho you respected the position taken\n",60);
                     Sleep(1000);
@@ -3319,7 +3322,7 @@ ______      _ _         ______            _   _
                         Sleep(10);
                         print_slow(cout,"You slam the brakes and instinctively close your eyes.",60);
                         Sleep(750);
-                        mostraAsciiArt("void");
+                        setSfondo(0);
                         system("cls");
                         cambiaColoreSfondo(0,15);
                         std::cout << "\033[H";
@@ -3437,7 +3440,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nWill time heal anything by itself?",60);
                         Sleep(600);
                         system("cls");
-                        mostraAsciiArt("void");
+                        setSfondo(0);
                         cambiaColoreSfondo(0,15);
                         for (int i = 0; i <= total; ++i) {
                         displayProgressBar(i, total);
@@ -3461,7 +3464,7 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\nYou think as people on the road look at you stunned\nYou get out not caring about the car and start walking,\n",60);
                 Sleep(600);
                 print_slow(cout,"\nThe road is built near a forest,\nthere is a path connecting it from the sidewalk\nYou look into the forest,",60);
-                mostraAsciiArt("forest",30);
+                mostraAsciiArt("forest.ansi");
                 Sleep(1500);
                 print_slow(cout,"\nFeels like it stares back\nYou start walking innit,\nThe more you venture in the darkwood the more clacsons and overall noise of the city goes silent,\n",60);
                 Sleep(750);
@@ -3470,12 +3473,12 @@ ______      _ _         ______            _   _
                 print_slow(cout,"\nYou walk for about 15' in a straight line,\nBut from the surroundings it almost look like you haven't moved at all\nIt's always tall dark trees on a soft humid ground\n",60);
                 Sleep(1000);
                 print_slow(cout,"\nAs you keep walking you stumble upon something weird none the less\nOn your right there is a set of stairs coming out the ground, seemingly leading to nothing,\n",45);
-                mostraAsciiArt("stairs",10);
+                mostraAsciiArt("stairs.ansi");
                 Sleep(2000);
                 print_slow(cout,"\nThat look so out of place, You curiously walk up to them\nStepping on them you start feeling them\nJust plain metal stairs,\nWhy would you build in a forest something that looks straight out a office\n\n1)See where they lead          2)Run away\n\n",60);
                 s=cinBloccato();
                 if(s==1){//Scelta numero: 1.2.2.2.1
-                    mostraAsciiArt("lotstairs",50);
+                    mostraAsciiArt("lotstairs.ansi");
                     print_slow(cout,"\nYou look down the stairs expecting them just to be covered in dirt\nWhat you actually see it's just\n",60);
                     Sleep(400);
                     print_slow(cout,"\nStairs",60);
@@ -3501,7 +3504,7 @@ ______      _ _         ______            _   _
                         print_slow(cout,"\nAbout 50 steps later you accidentally trip and fall\nYou placed your foot on the ground to take another step, but found none\nYou arrived at the end\nNo more stairs\n\n",60);
                         Sleep(1000);
                         print_slow(cout,"\nIt's still too dark to see tho\n...",60);
-                        mostraAsciiArt("generator",100);
+                        mostraAsciiArt("generator.ansi");
                         Sleep(1200);
                         SetConsoleTextAttribute(hc, 0x0F);
                         print_slow(cout,"\n\nYou notice a small red light in the distance.\nWith no other option you walk up to it\nIt's some kind of machine\n...",60);
@@ -3516,7 +3519,7 @@ ______      _ _         ______            _   _
                         Sleep(500);
                         print_slow(cout,"\nYou press it.",60);
                         Sleep(2000);
-                        mostraAsciiArt("emptyroom");
+                        mostraAsciiArt("generatoron.ansi");
                         cambiaColoreSfondo(7,0);
                         Sleep(750);
                         print_slow(cout,"\n-Wow this rust box actually worked\n",55);
@@ -3528,7 +3531,7 @@ ______      _ _         ______            _   _
                         Sleep(1000);
                         print_slow(cout,"\nOther then the generator the room is pretty much empty\nOnly some pipes on the ceiling\nCurious you start follow where they lead\n",60);
                         Sleep(1500);
-                        print_slow(cout,"The pipes extend trough a corridor,\nA very long corridor\nIt took you almost five minutes to walk trough it all\nNothing out of the ordinary here, just an underground tunnel\nA lot of cities have them\nYou eventually arrive at the end\nThe pipe splits in two\nThey both go into walls, into rooms\nBoth on your left and right\nOne has a little window that emits a subtle green light\nThe other one has no window but from under it you see a purple glow\n",60);
+                        print_slow(cout,"The pipes extend through a corridor,\nA very long corridor\nIt took you almost five minutes to walk through it all\nNothing out of the ordinary here, just an underground tunnel\nA lot of cities have them\nYou eventually arrive at the end\nThe pipe splits in two\nThey both go into walls, into rooms\nBoth on your left and right\nOne has a little window that emits a subtle green light\nThe other one has no window but from under it you see a purple glow\n",60);
                         Sleep(1000);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\n1)",60);
@@ -3547,8 +3550,8 @@ ______      _ _         ______            _   _
                             Sleep(200);
                             print_slow(cout,"\nYou walk towards it\n",60);
                             Sleep(750);
-                            print_slow(cout,"\nYou try to look inside trough the window but that light is so",60);
-                            mostraAsciiArt("light",10);
+                            print_slow(cout,"\nYou try to look inside through the window but that light is so",60);
+                            setSfondo(10);
                             print_slow(cout," strong it almost blinds you\nYou push the handle, it's not a normal one\nIt's like an anti-panic handle\nThe door immediately opens letting all the light out and just you in,\n",60);
                             Sleep(1000);
                             print_slow(cout,"\nComing in you feel something crack under your foot\nYou stepped on a pair of sunglasses\nYou did not break them\n",60);
@@ -3560,7 +3563,7 @@ ______      _ _         ______            _   _
                             Sleep(500);
                             print_slow(cout,"\nBeing able to see inside you notice a person in the middle of the room\n",60);
                             Sleep(750);
-                            mostraAsciiArt("leftroom",20);
+                            mostraAsciiArt("leftroom.ansi");
                             print_slow(cout,"\nIt look's like a woman from the hair and the brest\nShe's dressed like a corpo employer all black\nA headset covers half of her face is also the source of the light\nShe's sitting on what looks like an old dentist chair\n",60);
                             Sleep(500);
                             print_slow(cout,"\nWalking around the room you notice is pretty empty other for the girl\nOn the opposite side of the door, on the wall there is a cork board\nIt looks really complex and full, there are a lof of small drawings, even on the wall around\nYou can't understand it\nThe headset she's wearing has cables that are connected to the pipe you were following\nThere is a table beside her with a phone\n\nNow that you think about it even her wearing a headset since that technology should still be in his early stages\n",60);
@@ -3701,7 +3704,7 @@ ______      _ _         ______            _   _
                             print_slow(cout,"\n.and in what feels almost like falling asleep\n",60);
                             Sleep (1750);
                             system("cls");
-                            mostraAsciiArt("void");
+                            setSfondo(0);
                             cambiaColoreSfondo(0,15);
                             Sleep(500);
                             for (int i = 0; i <= total; ++i) {
@@ -3714,16 +3717,16 @@ ______      _ _         ______            _   _
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-Nah im done with this\n",55);
                         SetConsoleTextAttribute(hc, 0x70);
-                        print_slow(cout,"\nThe echo of your steps stops trough the walls of packed dirt surrounding you\n",60);
+                        print_slow(cout,"\nThe echo of your steps stops through the walls of packed dirt surrounding you\n",60);
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-What am i even doing\n",55);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nYou start walking back up watching out to not hit your head\nThe tunnel is not too tall but you still try hurry up\n",60);
                         Sleep(600);
-                        print_slow(cout,"\nAs the steps gets louder you notice something\nThe little tunnel you're walking in\nIt's changing the more up you go\nThe walls transition from dirt to gray bricks\nThe roof becomes concrete too\nOnly the stairs stays the same\n",60);
-                        mostraAsciiArt("stairsup",30);
-                        Sleep(1000);
-                        print_slow(cout,"\nA little later and lights starts appearing on the cealing too\n",60);
+                        print_slow(cout,"\nAs the steps gets louder you notice something\nThe little tunnel you're walking in\nIt's changing the more up you go\n",60);
+                        mostraAsciiArt("stairsup.ansi");
+                        Sleep(500);
+                        print_slow(cout,"The walls transition from dirty gray bricks to clean red ones\nThe roof becomes of a white plastic\nOnly the stairs stays the same\nA little later and lights starts appearing on the cealing too\n",60);
                         Sleep(500);
                         SetConsoleTextAttribute(hc, 0x78);
                         print_slow(cout,"\n-It looks like...\n",60);
@@ -3737,7 +3740,7 @@ ______      _ _         ______            _   _
                         Sleep(400);
                         SetConsoleTextAttribute(hc, 0x70);
                         print_slow(cout,"\nYou take the last step and are finally out\n",60);
-                        mostraAsciiArt("trainst",30);
+                        mostraAsciiArt("trainst.ansi");
                         Sleep(550);
                         print_slow(cout,"\nThe forest is gone\n",60);
                         SetConsoleTextAttribute(hc, 0x78);
@@ -3788,7 +3791,7 @@ ______      _ _         ______            _   _
                     print_slow(cout,"\nYou hear faint whispers in the air,\nSomething was definitely wrong with those stairs\nYou start walking a little bit faster trying to get away from the strange noises\n",60);
                     PlaySound(TEXT("./music/414.wav"), NULL, SND_FILENAME | SND_ASYNC );
                     Sleep(1500);
-                    print_slow(cout,"\nYou still wanna visit the forest but don't wanna get in danger with stuff like that\nAs you keep walking your heavy and crusty lungs start filling with fresh air\nThe air is getting colder, the deep dark woods start to get a little more colourful\nA pinkish light seeps trough the leaves\n",60);
+                    print_slow(cout,"\nYou still wanna visit the forest but don't wanna get in danger with stuff like that\nAs you keep walking your heavy and crusty lungs start filling with fresh air\nThe air is getting colder, the deep dark woods start to get a little more colourful\nA pinkish light seeps through the leaves\n",60);
                     Sleep(500);
                     SetConsoleTextAttribute(hc, 0x78);
                     print_slow(cout,"\n-Is that ..",54);
@@ -3808,7 +3811,7 @@ ______      _ _         ______            _   _
                     Sleep(1000);
                     print_slow(cout,"\nYou smile\nAll this childhood memories flooding you almost makes you forget that usually in your town it doesn't snow in september,\n",60);
                     Sleep(600);
-                    print_slow(cout,"\nYou keep walking as the cold breeze gently settles on your clothes\nYou feel the ground underneath you feet harden\nIt's not ice, it's concrete\nYou can understand it from the gray seeping trough the white\nSoemone built a full on road\n",60);
+                    print_slow(cout,"\nYou keep walking as the cold breeze gently settles on your clothes\nYou feel the ground underneath you feet harden\nIt's not ice, it's concrete\nYou can understand it from the gray seeping through the white\nSoemone built a full on road\n",60);
                     Sleep(1000);
                     print_slow(cout,"\nLooking in front of you you see the silhouette of the road stretching ahead\nMaybe this forest is more civilized than what you thought\n",60);
                     Sleep(600);
@@ -3819,14 +3822,14 @@ ______      _ _         ______            _   _
                         Sleep(1000);
                         print_slow(cout,"\nUntil you arrive at a bar\nLooks like a border\nWith a little cabin to the left for the bar operator and ticket machine\n",60);
                         Sleep(500);
-                        print_slow(cout,"\nWeirdly trough the glass you notice there is no one inside so you just walk around the bar\n",60);
+                        print_slow(cout,"\nWeirdly through the glass you notice there is no one inside so you just walk around the bar\n",60);
                         Sleep(450);
                         print_slow(cout,"\nThe place seems calm, the white snow covers all the roofs of the small buildings\nIt looks like it's just one single road with building to the sides\n",60);
                         Sleep(250);
                         print_slow(cout,"\nYou decide to take a picture.\n",60);
                         system("start https://drive.google.com/file/d/1ZdcenFNhI35sbm8NL3klTWvHENQrl7LX/view?usp=drive_link");
                         Sleep(10000);
-                        print_slow(cout,"It's getting cold in here\nAt this point you just gotta pusth trough and see where you end up\n",60);
+                        print_slow(cout,"It's getting cold in here\nAt this point you just gotta pusth through and see where you end up\n",60);
                         Sleep(750);
                         print_slow(cout,"\nYou see minimarkets with no door\nCold abbandoned vegetable stands\nMostly homes with no more then 2 floors\n",60);
                         Sleep(340);
