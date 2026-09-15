@@ -21,6 +21,7 @@ SWP_FRAMECHANGED   = 0x0020
 KEYEVENTF_KEYUP    = 0x0002
 VK_LWIN            = 0x5B
 VK_LEFT            = 0x25
+VK_RIGHT           = 0x27
 CTRL_C_EVENT       = 0
 CTRL_CLOSE_EVENT   = 2
 DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2 = ctypes.c_void_p(-4)
@@ -105,25 +106,34 @@ def lock_window_size():
     user32.SetWindowLongPtrW(hwnd, GWL_STYLE, style)
     user32.SetWindowPos(hwnd, None, 0, 0, 0, 0,
         SWP_NOMOVE | SWP_NOSIZE | SWP_NOZORDER | SWP_FRAMECHANGED)
-def snap_left():
-    hwnd = kernel32.GetConsoleWindow()
-    if not hwnd:
+# Snap di una finestra usando il sistema (Win+frecce) in modo che
+# Windows li consideri "agganciati" e crei il gruppo di finestre (Win11)
+def _snap_window(hwnd, vkey):
+    if not hwnd or not user32.IsWindow(hwnd):
         return
     user32.ShowWindow(hwnd, 5)
     time.sleep(0.16)
     user32.BringWindowToTop(hwnd)
     user32.SetForegroundWindow(hwnd)
+    time.sleep(0.12)
     user32.keybd_event(VK_LWIN, 0, 0, 0)
     time.sleep(0.04)
-    user32.keybd_event(VK_LEFT, 0, 0, 0)
+    user32.keybd_event(vkey, 0, 0, 0)
     time.sleep(0.04)
-    user32.keybd_event(VK_LEFT, 0, KEYEVENTF_KEYUP, 0)
+    user32.keybd_event(vkey, 0, KEYEVENTF_KEYUP, 0)
     time.sleep(0.04)
     user32.keybd_event(VK_LWIN, 0, KEYEVENTF_KEYUP, 0)
     time.sleep(0.5)
-    hwnd_m = user32.FindWindowA(None, b"DailyRoutine.exe")
-    if hwnd_m and user32.IsWindow(hwnd_m):
-        user32.SetForegroundWindow(hwnd_m)
+
+def create_snap_group():
+    hwnd_self = kernel32.GetConsoleWindow()
+    hwnd_main = user32.FindWindowA(None, b"DailyRoutine.exe")
+    # console (sfondo) agganciata a sinistra
+    _snap_window(hwnd_self, VK_LEFT)
+    # DailyRoutine.exe agganciata a destra: Win+Right completa il gruppo
+    # di finestre di Windows 11 (le due finestre restano raggruppate)
+    if hwnd_main and user32.IsWindow(hwnd_main):
+        _snap_window(hwnd_main, VK_RIGHT)
 def kill_parent():
     hwnd = user32.FindWindowA(None, b"DailyRoutine.exe")
     if hwnd and user32.IsWindow(hwnd):
@@ -432,7 +442,7 @@ def run():
     _ctrl_ref = _setup_handlers()
     sys.stdout.write("\n*")
     sys.stdout.flush()
-    snap_left()
+    create_snap_group()
     lock_window_size()
     last_cmd       = ""
     current_grid   = None
